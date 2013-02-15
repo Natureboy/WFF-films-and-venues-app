@@ -7,8 +7,11 @@
 //
 
 #import "MainAppDelegate.h"
-
-#import "MainViewController.h"
+#import "HomeViewController.h"
+#import "AboutViewController.h"
+#import "SponsersViewController.h"
+#import "ContactViewController.h"
+#import "MoreViewController.h"
 
 @implementation MainAppDelegate
 
@@ -16,8 +19,20 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    
+    
+    /* sets up all the various view controllers used in this application */
+    _homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    _aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    _sponsersViewController = [[SponsersViewController alloc] initWithNibName:@"SponsersViewController" bundle:nil];
+    _contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
+    _moreViewController = [[MoreViewController alloc] initWithNibName:@"MoreViewController" bundle:nil];
+    
+    /* sets up tab bar and adds view controllers to it respectively */
+    _tabBarController = [[UITabBarController alloc] init];
+    _tabBarController.viewControllers = @[_homeViewController, _aboutViewController, _sponsersViewController, _contactViewController, _moreViewController];
+    
+    self.window.rootViewController = _tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
