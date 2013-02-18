@@ -21,6 +21,12 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
+@property (strong, nonatomic) UINavigationController *homeNavController;
+@property (strong, nonatomic) UINavigationController *aboutNavController;
+@property (strong, nonatomic) UINavigationController *sponsersNavController;
+@property (strong, nonatomic) UINavigationController *contactNavController;
+@property (strong, nonatomic) UINavigationController *moreNavController;
+
 @property (strong, nonatomic) HomeViewController *homeViewController;
 @property (strong, nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) SponsersViewController *sponsersViewController;

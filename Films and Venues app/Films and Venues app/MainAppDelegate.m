@@ -21,16 +21,37 @@
     // Override point for customization after application launch.
     
     
-    /* sets up all the various view controllers used in this application */
-    _homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    _aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-    _sponsersViewController = [[SponsersViewController alloc] initWithNibName:@"SponsersViewController" bundle:nil];
-    _contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
-    _moreViewController = [[MoreViewController alloc] initWithNibName:@"MoreViewController" bundle:nil];
+    /* sets up all the various view controllers and corresponding nav controllers */
     
-    /* sets up tab bar and adds view controllers to it respectively */
+    /* home tab */
+    _homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    _homeNavController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
+    _homeNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    /* about tab */
+    _aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+    _aboutNavController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
+    _aboutNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    /* sponsers tab */
+    _sponsersViewController = [[SponsersViewController alloc] initWithNibName:@"SponsersViewController" bundle:nil];
+    _sponsersNavController = [[UINavigationController alloc] initWithRootViewController:_sponsersViewController];
+    _sponsersNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    /* contact tab */
+    _contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
+    _contactNavController = [[UINavigationController alloc] initWithRootViewController:_contactViewController];
+    _contactNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    /* more tab */
+    _moreViewController = [[MoreViewController alloc] initWithNibName:@"MoreViewController" bundle:nil];
+    _moreNavController = [[UINavigationController alloc] initWithRootViewController:_moreViewController];
+    _moreNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    /* sets up tab bar and adds nav controllers to it respectively */
     _tabBarController = [[UITabBarController alloc] init];
-    _tabBarController.viewControllers = @[_homeViewController, _aboutViewController, _sponsersViewController, _contactViewController, _moreViewController];
+    _tabBarController.viewControllers = @[_homeNavController, _aboutNavController, _sponsersNavController, _contactNavController, _moreNavController];
+    
     
     self.window.rootViewController = _tabBarController;
     [self.window makeKeyAndVisible];

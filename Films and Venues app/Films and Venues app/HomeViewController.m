@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.topItem.title = @"Waterfront Film Festival";
     // Do any additional setup after loading the view from its nib.
 }
 
