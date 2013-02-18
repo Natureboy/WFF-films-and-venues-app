@@ -46,8 +46,32 @@
     
     _carousel.type = iCarouselTypeInvertedCylinder;
     
+    [_scheduleButton setImage:[UIImage imageNamed:@"schedule_icon"] forState:UIControlStateNormal];    
+    [_ticketsButton setImage:[UIImage imageNamed:@"tickets_icon"] forState:UIControlStateNormal];
+    [_venuesButton setImage:[UIImage imageNamed:@"venues_icon"] forState:UIControlStateNormal];
+    [_directionsButton setImage:[UIImage imageNamed:@"directions_icon"] forState:UIControlStateNormal];
+    [_playingButton setImage:[UIImage imageNamed:@"playing_icon"] forState:UIControlStateNormal];
+    [_favoritesButton setImage:[UIImage imageNamed:@"favorites_icon"] forState:UIControlStateNormal];
+    
     [self startScrolling];
     // Do any additional setup after loading the view from its nib.
+}
+
+
+-(void)btnClicked:(id)sender {
+    if (sender == _scheduleButton) {
+        
+    } else if (sender == _ticketsButton) {
+        
+    } else if (sender == _venuesButton) {
+        
+    } else if (sender == _directionsButton) {
+        
+    } else if (sender == _playingButton) {
+        
+    } else if (sender == _favoritesButton) {
+        
+    }
 }
 
 #pragma mark -
