@@ -27,6 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_photosButton setImage:[UIImage imageNamed:@"photos_icon"] forState:UIControlStateNormal];
+    [_websiteButton setImage:[UIImage imageNamed:@"website_icon"] forState:UIControlStateNormal];
+    [_volunteerButton setImage:[UIImage imageNamed:@"volunteer_icon"] forState:UIControlStateNormal];
+    [_donateButton setImage:[UIImage imageNamed:@"donate_icon"] forState:UIControlStateNormal];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

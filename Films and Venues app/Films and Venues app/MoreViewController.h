@@ -10,4 +10,10 @@
 
 @interface MoreViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIButton *photosButton;
+@property (nonatomic, strong) IBOutlet UIButton *websiteButton;
+@property (nonatomic, strong) IBOutlet UIButton *volunteerButton;
+@property (nonatomic, strong) IBOutlet UIButton *donateButton;
+
+
 @end
