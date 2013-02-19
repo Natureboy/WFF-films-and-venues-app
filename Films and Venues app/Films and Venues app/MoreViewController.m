@@ -33,6 +33,8 @@
     [_volunteerButton setImage:[UIImage imageNamed:@"volunteer_icon"] forState:UIControlStateNormal];
     [_donateButton setImage:[UIImage imageNamed:@"donate_icon"] forState:UIControlStateNormal];
     [_twitterButton setImage:[UIImage imageNamed:@"twitter_icon"] forState:UIControlStateNormal];
+    [_facebookButton setImage:[UIImage imageNamed:@"facebook_icon"] forState:UIControlStateNormal];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,11 +51,28 @@
     } else if (sender == _websiteButton) {
         [self goToWebsite];
     } else if (sender == _volunteerButton) {
-        
+        [self volunteer];
     } else if (sender == _donateButton) {
         [self donate];
     } else if (sender == _twitterButton) {
         [self goToTwitter];
+    } else if (sender == _facebookButton) {
+        [self goToFacebook];
+    }
+}
+
+-(void)volunteer {
+
+}
+
+-(void)goToFacebook {
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/waterfrontfilm"]];
+    } else {
+        NSURL *url = [NSURL URLWithString:@"https://facebook.com/waterfrontfilm"];
+        if (![[UIApplication sharedApplication] openURL:url]) {
+            NSLog(@"%@%@",@"Failed to open url:",[url description]);
+        }
     }
 }
 

@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Sponsers", @"Sponsers");
+        self.title = NSLocalizedString(@"Sponsors", @"Sponsors");
         self.tabBarItem.image = [UIImage imageNamed:@"sponsers_icon"];
     }
     return self;

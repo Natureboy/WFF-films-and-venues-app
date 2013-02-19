@@ -15,6 +15,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *volunteerButton;
 @property (nonatomic, strong) IBOutlet UIButton *donateButton;
 @property (nonatomic, strong) IBOutlet UIButton *twitterButton;
+@property (nonatomic, strong) IBOutlet UIButton *facebookButton;
 
 -(IBAction)btnClicked:(id)sender;
 
