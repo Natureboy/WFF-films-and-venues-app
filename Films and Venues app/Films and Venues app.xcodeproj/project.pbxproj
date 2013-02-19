@@ -50,6 +50,8 @@
 		972F881816D31AFE0092E80D /* playing_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 972F881616D31AFE0092E80D /* playing_icon.png */; };
 		972F881F16D31C6D0092E80D /* favorites_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 972F881D16D31C6C0092E80D /* favorites_icon@2x.png */; };
 		972F882016D31C6D0092E80D /* favorites_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 972F881E16D31C6D0092E80D /* favorites_icon.png */; };
+		972F882416D31E050092E80D /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 972F882216D31E040092E80D /* VenuesViewController.m */; };
+		972F882516D31E050092E80D /* VenuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 972F882316D31E040092E80D /* VenuesViewController.xib */; };
 		97D17C6F16CED46A00D9D964 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C6D16CED46A00D9D964 /* HomeViewController.m */; };
 		97D17C7016CED46A00D9D964 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C6E16CED46A00D9D964 /* HomeViewController.xib */; };
 		97D17C7516CED48000D9D964 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7316CED48000D9D964 /* AboutViewController.m */; };
@@ -115,6 +117,9 @@
 		972F881616D31AFE0092E80D /* playing_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playing_icon.png; sourceTree = "<group>"; };
 		972F881D16D31C6C0092E80D /* favorites_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites_icon@2x.png"; sourceTree = "<group>"; };
 		972F881E16D31C6D0092E80D /* favorites_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_icon.png; sourceTree = "<group>"; };
+		972F882116D31E040092E80D /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
+		972F882216D31E040092E80D /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
+		972F882316D31E040092E80D /* VenuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenuesViewController.xib; sourceTree = "<group>"; };
 		97D17C6C16CED46A00D9D964 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		97D17C6D16CED46A00D9D964 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		97D17C6E16CED46A00D9D964 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +195,9 @@
 				970B2EB916A5FCD100607337 /* MainAppDelegate.m */,
 				97D17C6C16CED46A00D9D964 /* HomeViewController.h */,
 				97D17C6D16CED46A00D9D964 /* HomeViewController.m */,
+				972F882116D31E040092E80D /* VenuesViewController.h */,
+				972F882216D31E040092E80D /* VenuesViewController.m */,
+				972F882316D31E040092E80D /* VenuesViewController.xib */,
 				97D17C6E16CED46A00D9D964 /* HomeViewController.xib */,
 				97D17C7216CED48000D9D964 /* AboutViewController.h */,
 				97D17C7316CED48000D9D964 /* AboutViewController.m */,
@@ -353,6 +361,7 @@
 				972F881816D31AFE0092E80D /* playing_icon.png in Resources */,
 				972F881F16D31C6D0092E80D /* favorites_icon@2x.png in Resources */,
 				972F882016D31C6D0092E80D /* favorites_icon.png in Resources */,
+				972F882516D31E050092E80D /* VenuesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +380,7 @@
 				97D17C7F16CED4A100D9D964 /* ContactViewController.m in Sources */,
 				97D17C8416CED4AE00D9D964 /* MoreViewController.m in Sources */,
 				972F87BE16D1FC680092E80D /* iCarousel.m in Sources */,
+				972F882416D31E050092E80D /* VenuesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

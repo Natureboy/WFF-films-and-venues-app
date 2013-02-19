@@ -54,6 +54,8 @@
     [_playingButton setImage:[UIImage imageNamed:@"playing_icon"] forState:UIControlStateNormal];
     [_favoritesButton setImage:[UIImage imageNamed:@"favorites_icon"] forState:UIControlStateNormal];
     
+    _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
+    
     [self startScrolling];
     // Do any additional setup after loading the view from its nib.
 }
@@ -65,7 +67,10 @@
     } else if (sender == _ticketsButton) {
         
     } else if (sender == _venuesButton) {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Home" style: UIBarButtonItemStyleBordered target: nil action: nil];
+        [self.navigationItem setBackBarButtonItem: backButton];
         
+        [self.navigationController pushViewController:_venuesViewController animated:YES];
     } else if (sender == _directionsButton) {
         
     } else if (sender == _playingButton) {

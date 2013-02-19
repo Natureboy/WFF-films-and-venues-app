@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import "VenuesViewController.h"
 
 @interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+
+@property (nonatomic, strong) VenuesViewController *venuesViewController;
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
