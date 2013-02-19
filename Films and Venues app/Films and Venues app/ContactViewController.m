@@ -50,6 +50,8 @@
 //    [self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
     _mailer = nil;
+    
+    /* return to the home tab */
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
 }
 
