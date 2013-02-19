@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageUI/MessageUI.h"
 
-@interface ContactViewController : UIViewController
+@interface ContactViewController : UIViewController 
+
+@property (strong,nonatomic) MFMailComposeViewController *mailer;
 
 @end

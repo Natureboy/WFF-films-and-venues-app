@@ -7,8 +7,9 @@
 //
 
 #import "ContactViewController.h"
+#import "MessageUI/MessageUI.h"
 
-@interface ContactViewController ()
+@interface ContactViewController () <MFMailComposeViewControllerDelegate>
 
 @end
 
@@ -27,7 +28,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    if ([MFMailComposeViewController canSendMail])
+    {
+        if (_mailer == nil) {
+            _mailer = [[MFMailComposeViewController alloc] init];
+            _mailer.mailComposeDelegate = self;
+            [_mailer setToRecipients:@[@"info@waterfrontfilm.org"]];
+            [self presentViewController:_mailer animated:YES completion:nil];
+        }
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    // Remove the mail view
+//    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    _mailer = nil;
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
