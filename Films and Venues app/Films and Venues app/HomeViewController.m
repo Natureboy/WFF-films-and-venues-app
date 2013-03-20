@@ -35,8 +35,6 @@
 {
     [super viewDidLoad];
     
-    //self.navigationController.navigationBar.topItem.title = @"Waterfront Film Festival";
-    
     UIImage *image = [UIImage imageNamed:@"wff-navBar"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     [self.navigationController.navigationBar.topItem setTitleView:imageView];

@@ -25,6 +25,13 @@
     [attributes setValue:[UIFont fontWithName:@"OneDirection" size:13] forKey:UITextAttributeFont];
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                UITextAttributeTextColor: [UIColor whiteColor],
+                          UITextAttributeTextShadowColor: [UIColor grayColor],
+                         UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"FISHfingers" size:28.0f]
+     }];
+    
     /* sets up all the various view controllers and corresponding nav controllers */
     
     /* home tab */
