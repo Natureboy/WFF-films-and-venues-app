@@ -59,6 +59,8 @@
 		974C26FB16F9650C006F06FD /* favorites_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 974C26F916F9650B006F06FD /* favorites_icon.png */; };
 		974C26FE16F96597006F06FD /* playing_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 974C26FC16F96597006F06FD /* playing_icon@2x.png */; };
 		974C26FF16F96597006F06FD /* playing_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 974C26FD16F96597006F06FD /* playing_icon.png */; };
+		974C270116F9691E006F06FD /* Fishfingers.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 974C270016F9691E006F06FD /* Fishfingers.ttf */; };
+		974C270316F96AFF006F06FD /* TETRL___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 974C270216F96AFF006F06FD /* TETRL___.TTF */; };
 		97D17C7516CED48000D9D964 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7316CED48000D9D964 /* AboutViewController.m */; };
 		97D17C7616CED48000D9D964 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C7416CED48000D9D964 /* AboutViewController.xib */; };
 		97D17C7A16CED48D00D9D964 /* SponsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7816CED48D00D9D964 /* SponsersViewController.m */; };
@@ -133,6 +135,8 @@
 		974C26F916F9650B006F06FD /* favorites_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_icon.png; sourceTree = "<group>"; };
 		974C26FC16F96597006F06FD /* playing_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playing_icon@2x.png"; sourceTree = "<group>"; };
 		974C26FD16F96597006F06FD /* playing_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playing_icon.png; sourceTree = "<group>"; };
+		974C270016F9691E006F06FD /* Fishfingers.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fishfingers.ttf; sourceTree = "<group>"; };
+		974C270216F96AFF006F06FD /* TETRL___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TETRL___.TTF"; sourceTree = "<group>"; };
 		97D17C7216CED48000D9D964 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		97D17C7316CED48000D9D964 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		97D17C7416CED48000D9D964 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 		970B2EB016A5FCD100607337 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				974C270216F96AFF006F06FD /* TETRL___.TTF */,
+				974C270016F9691E006F06FD /* Fishfingers.ttf */,
 				974C26FC16F96597006F06FD /* playing_icon@2x.png */,
 				974C26FD16F96597006F06FD /* playing_icon.png */,
 				974C26F816F9650B006F06FD /* favorites_icon@2x.png */,
@@ -382,6 +388,8 @@
 				974C26FB16F9650C006F06FD /* favorites_icon.png in Resources */,
 				974C26FE16F96597006F06FD /* playing_icon@2x.png in Resources */,
 				974C26FF16F96597006F06FD /* playing_icon.png in Resources */,
+				974C270116F9691E006F06FD /* Fishfingers.ttf in Resources */,
+				974C270316F96AFF006F06FD /* TETRL___.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

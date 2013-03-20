@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>OneDirection.ttf</string>
+		<string>Fishfingers.ttf</string>
+		<string>TETRL___.TTF</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

@@ -23,6 +23,13 @@
 @property (nonatomic, strong) IBOutlet UIButton *playingButton;
 @property (nonatomic, strong) IBOutlet UIButton *favoritesButton;
 
+@property (nonatomic,strong) IBOutlet UILabel *scheduleLabel;
+@property (nonatomic,strong) IBOutlet UILabel *ticketsLabel;
+@property (nonatomic,strong) IBOutlet UILabel *venuesLabel;
+@property (nonatomic,strong) IBOutlet UILabel *directionsLabel;
+@property (nonatomic,strong) IBOutlet UILabel *playingLabel;
+@property (nonatomic,strong) IBOutlet UILabel *favoritesLabel;
+
 -(IBAction)btnClicked:(id)sender;
 
 @end

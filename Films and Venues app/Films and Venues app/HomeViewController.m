@@ -58,6 +58,13 @@
     [_playingButton setImage:[UIImage imageNamed:@"playing_icon"] forState:UIControlStateNormal];
     [_favoritesButton setImage:[UIImage imageNamed:@"favorites_icon"] forState:UIControlStateNormal];
     
+    [_scheduleLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    [_ticketsLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    [_venuesLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    [_directionsLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    [_playingLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    [_favoritesLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
+    
     _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
