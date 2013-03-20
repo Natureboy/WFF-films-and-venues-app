@@ -20,6 +20,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    /* changes default text of the tab bar */
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary: [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
+    [attributes setValue:[UIFont fontWithName:@"OneDirection" size:13] forKey:UITextAttributeFont];
+    [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     /* sets up all the various view controllers and corresponding nav controllers */
     

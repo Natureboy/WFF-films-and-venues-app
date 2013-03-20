@@ -35,7 +35,11 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.topItem.title = @"Waterfront Film Festival";
+    //self.navigationController.navigationBar.topItem.title = @"Waterfront Film Festival";
+    
+    UIImage *image = [UIImage imageNamed:@"wff-navBar"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    [self.navigationController.navigationBar.topItem setTitleView:imageView];
     
     _items = [NSMutableArray array];
     for (int i = 0; i < NUMBER_OF_SPONSERS; i++)
@@ -47,7 +51,7 @@
     
     _carousel.type = iCarouselTypeInvertedCylinder;
     
-    [_scheduleButton setImage:[UIImage imageNamed:@"schedule_icon"] forState:UIControlStateNormal];    
+    [_scheduleButton setImage:[UIImage imageNamed:@"schedule_icon"] forState:UIControlStateNormal];
     [_ticketsButton setImage:[UIImage imageNamed:@"tickets_icon"] forState:UIControlStateNormal];
     [_venuesButton setImage:[UIImage imageNamed:@"venues_icon"] forState:UIControlStateNormal];
     [_directionsButton setImage:[UIImage imageNamed:@"directions_icon"] forState:UIControlStateNormal];
@@ -55,6 +59,8 @@
     [_favoritesButton setImage:[UIImage imageNamed:@"favorites_icon"] forState:UIControlStateNormal];
     
     _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
     
     [self startScrolling];
     // Do any additional setup after loading the view from its nib.
@@ -119,10 +125,10 @@
 	NSInteger index = [_carousel indexOfItemViewOrSubview:sender];
 	
     [[[UIAlertView alloc] initWithTitle:@"Button Tapped"
-                                 message:[NSString stringWithFormat:@"You tapped button number %i", index]
-                                delegate:nil
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:nil]show];
+                                message:[NSString stringWithFormat:@"You tapped button number %i", index]
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil]show];
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
@@ -143,10 +149,10 @@
 {
     [_scrollTimer invalidate];
     _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0
-                                                   target:self
-                                                 selector:@selector(scrollStep)
-                                                 userInfo:nil
-                                                  repeats:YES];
+                                                    target:self
+                                                  selector:@selector(scrollStep)
+                                                  userInfo:nil
+                                                   repeats:YES];
 }
 
 - (void)stopScrolling

@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class HomeViewController;
-@class AboutViewController;
-@class SponsersViewController;
-@class ContactViewController;
-@class MoreViewController;
+@class HomeViewController, AboutViewController, SponsersViewController, ContactViewController, MoreViewController;
 
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
