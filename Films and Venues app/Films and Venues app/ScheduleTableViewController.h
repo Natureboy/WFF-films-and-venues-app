@@ -13,4 +13,6 @@
 @property (strong,nonatomic) NSArray *movieArray;
 @property (strong,nonatomic) NSArray *venuesArray;
 
+@property (strong,nonatomic) IBOutlet UITableView *tableView;
+
 @end

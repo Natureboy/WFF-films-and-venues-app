@@ -8,8 +8,11 @@
 
 #import "ScheduleTableViewController.h"
 #import "ADLivelyTableView.h"
+#import "DMSlidingTableViewCell.h"
 
-@interface ScheduleTableViewController ()
+@interface ScheduleTableViewController () {
+    NSMutableIndexSet* revealedCells;
+}
 
 @end
 
@@ -39,6 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    revealedCells= [[NSMutableIndexSet alloc] init];
+    
     
     ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
     livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
@@ -70,13 +76,30 @@
     return [_movieArray count];
 }
 
+- (void) resetCellsState {
+    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
+        [cell setBackgroundVisible:NO];
+    }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    DMSlidingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[DMSlidingTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.swipeDirection = DMSlidingTableViewCellSwipeBoth;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    cell.eventHandler = ^(DMEventType eventType, BOOL backgroundRevealed, DMSlidingTableViewCellSwipe swipeDirection) {
+        if (eventType == DMEventTypeDidOccurr) {
+            if (backgroundRevealed)
+                NSLog(@"revealed");
+            else [revealedCells removeIndex:indexPath.row];
+        }
+    };
     
     for(UIView *eachView in [cell subviews])
         [eachView removeFromSuperview];
