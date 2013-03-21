@@ -1,4 +1,4 @@
-WFF-films-and-venues-app
+Waterfront Film Festival - Films and Venues app
 ========================
 
 An iPhone application for the Waterfront Film Festival. <br />
