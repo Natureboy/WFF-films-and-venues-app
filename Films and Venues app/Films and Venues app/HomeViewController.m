@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import <MapKit/MapKit.h>
+#import "SVModalWebViewController.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
 #define NUMBER_OF_SPONSERS 10
@@ -34,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
     
     UIImage *image = [UIImage imageNamed:@"wff-navBar"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -64,12 +68,23 @@
     [_favoritesLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
     
     _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
-    _directionsViewController = [[DirectionsViewController alloc] initWithNibName:@"DirectionsViewController" bundle:nil];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
     
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Venues" ofType:@"plist"];
+    
+    // Build the array from the plist
+    _venuesArray = [[NSArray alloc] initWithContentsOfFile:path];
+    
     [self startScrolling];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)allPinsLoaded {
+    _val = 0;
+    [MKMapItem openMapsWithItems:_holderArray launchOptions:nil];
 }
 
 
@@ -77,23 +92,52 @@
     if (sender == _scheduleButton) {
         
     } else if (sender == _ticketsButton) {
-        
+        SVModalWebViewController *modalWebView = [[SVModalWebViewController alloc] initWithAddress:@"http://www.waterfrontfilm.org/wordpress/?product_cat=tickets"];
+
+        [self presentViewController:modalWebView animated:YES completion:nil];
     } else if (sender == _venuesButton) {
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Home" style: UIBarButtonItemStyleBordered target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
         
         [self.navigationController pushViewController:_venuesViewController animated:YES];
     } else if (sender == _directionsButton) {
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Home" style: UIBarButtonItemStyleBordered target: nil action: nil];
         
-        [self.navigationItem setBackBarButtonItem: backButton];
-        [self.navigationController pushViewController:_directionsViewController animated:YES];
+        _holderArray = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [_venuesArray count]; i++) {
+            
+            NSString *location = [[_venuesArray objectAtIndex:i] objectForKey:@"address"];
+            
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            [geocoder geocodeAddressString:location
+                         completionHandler:^(NSArray* placemarks, NSError* error){
+                             if (placemarks && placemarks.count > 0) {
+                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                                 [mapItem setName:[[_venuesArray objectAtIndex:i] objectForKey:@"name"]];
+                                 
+                                 [_holderArray addObject:mapItem];
+                                 _val++;
+                                 
+                                 if (_val == [_venuesArray count]) {
+                                     [[NSNotificationCenter defaultCenter] postNotificationName:kAllPinsLoaded object:nil];
+                                 }
+                             }
+                         }
+             ];
+        }
         
     } else if (sender == _playingButton) {
         
     } else if (sender == _favoritesButton) {
         
     }
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = 1.5;"];
+    [webView stringByEvaluatingJavaScriptFromString:jsCommand];
 }
 
 #pragma mark -

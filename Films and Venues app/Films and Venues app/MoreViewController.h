@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVModalWebViewController.h"
 
 @interface MoreViewController : UIViewController
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *donateButton;
 @property (nonatomic, strong) IBOutlet UIButton *twitterButton;
 @property (nonatomic, strong) IBOutlet UIButton *facebookButton;
+
+@property (nonatomic, strong) SVModalWebViewController *svmController;
 
 -(IBAction)btnClicked:(id)sender;
 

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 #import "VenuesViewController.h"
-#import "DirectionsViewController.h"
+#import "SVModalWebViewController.h"
+#import "SVWebViewController.h"
 
-@interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+#define kAllPinsLoaded @"kAllPinsLoaded"
+
+@interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, UIWebViewDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) VenuesViewController *venuesViewController;
-@property (nonatomic, strong) DirectionsViewController *directionsViewController;
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
@@ -31,6 +33,12 @@
 @property (nonatomic,strong) IBOutlet UILabel *directionsLabel;
 @property (nonatomic,strong) IBOutlet UILabel *playingLabel;
 @property (nonatomic,strong) IBOutlet UILabel *favoritesLabel;
+
+@property (nonatomic,strong) NSArray *venuesArray;
+
+@property (nonatomic,strong) NSMutableArray *holderArray;
+
+@property (nonatomic) int val;
 
 -(IBAction)btnClicked:(id)sender;
 

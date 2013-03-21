@@ -69,29 +69,25 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/waterfrontfilm"]];
     } else {
-        NSURL *url = [NSURL URLWithString:@"https://facebook.com/waterfrontfilm"];
-        if (![[UIApplication sharedApplication] openURL:url]) {
-            NSLog(@"%@%@",@"Failed to open url:",[url description]);
-        }
+        NSString *url = @"https://facebook.com/waterfrontfilm";
+        _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+        [self presentViewController:_svmController animated:YES completion:nil];
     }
 }
 
 -(void)goToWebsite {
-    NSString *wffURL = @"http://www.waterfrontfilm.org";
-    NSURL *url = [NSURL URLWithString:wffURL];
-    if (![[UIApplication sharedApplication] openURL:url]) {
-        NSLog(@"%@%@",@"Failed to open url:",[url description]);
-    }
+    NSString *url = @"http://www.waterfrontfilm.org";
+    _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+    [self presentViewController:_svmController animated:YES completion:nil];
 }
 
 -(void)goToTwitter {
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=waterfrontfilm"]];
     } else {
-        NSURL *url = [NSURL URLWithString:@"https://twitter.com/WaterfrontFilm"];
-        if (![[UIApplication sharedApplication] openURL:url]) {
-            NSLog(@"%@%@",@"Failed to open url:",[url description]);
-        }
+        NSString *url = @"https://twitter.com/WaterfrontFilm";
+        _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+        [self presentViewController:_svmController animated:YES completion:nil];
     }
 }
 
