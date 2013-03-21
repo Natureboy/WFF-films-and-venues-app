@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface DirectionsViewController : UIViewController
+@interface DirectionsViewController : UIViewController <MKMapViewDelegate> 
+
+
+
+@property (nonatomic,strong) IBOutlet MKMapView *mapView;
+@property (strong,nonatomic) NSArray *venuesArray;
 
 @end

@@ -97,6 +97,8 @@
 		977620AA16FAA94C00B9F5B1 /* Street_Center_200_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 977620A616FAA94C00B9F5B1 /* Street_Center_200_west.png */; };
 		977620AE16FAAC0200B9F5B1 /* DirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977620AC16FAAC0100B9F5B1 /* DirectionsViewController.m */; };
 		977620AF16FAAC0200B9F5B1 /* DirectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977620AD16FAAC0200B9F5B1 /* DirectionsViewController.xib */; };
+		977620B116FAAEE000B9F5B1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977620B016FAAEDF00B9F5B1 /* MapKit.framework */; };
+		977620B316FAB40500B9F5B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977620B216FAB40500B9F5B1 /* CoreLocation.framework */; };
 		97D17C7A16CED48D00D9D964 /* SponsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7816CED48D00D9D964 /* SponsersViewController.m */; };
 		97D17C7B16CED48D00D9D964 /* SponsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C7916CED48D00D9D964 /* SponsersViewController.xib */; };
 		97D17C7F16CED4A100D9D964 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7D16CED4A100D9D964 /* ContactViewController.m */; };
@@ -226,6 +228,8 @@
 		977620AB16FAAC0100B9F5B1 /* DirectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionsViewController.h; sourceTree = "<group>"; };
 		977620AC16FAAC0100B9F5B1 /* DirectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionsViewController.m; sourceTree = "<group>"; };
 		977620AD16FAAC0200B9F5B1 /* DirectionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionsViewController.xib; sourceTree = "<group>"; };
+		977620B016FAAEDF00B9F5B1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		977620B216FAB40500B9F5B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		97D17C7716CED48D00D9D964 /* SponsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsersViewController.h; sourceTree = "<group>"; };
 		97D17C7816CED48D00D9D964 /* SponsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsersViewController.m; sourceTree = "<group>"; };
 		97D17C7916CED48D00D9D964 /* SponsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsersViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977620B316FAB40500B9F5B1 /* CoreLocation.framework in Frameworks */,
+				977620B116FAAEE000B9F5B1 /* MapKit.framework in Frameworks */,
 				977620A016FA8F6300B9F5B1 /* SystemConfiguration.framework in Frameworks */,
 				9776209C16FA8F0B00B9F5B1 /* CFNetwork.framework in Frameworks */,
 				972F880416D2B8910092E80D /* MessageUI.framework in Frameworks */,
@@ -262,6 +268,8 @@
 		970B2E9A16A5FCD100607337 = {
 			isa = PBXGroup;
 			children = (
+				977620B216FAB40500B9F5B1 /* CoreLocation.framework */,
+				977620B016FAAEDF00B9F5B1 /* MapKit.framework */,
 				9776209F16FA8F6300B9F5B1 /* SystemConfiguration.framework */,
 				9776209D16FA8F3400B9F5B1 /* MobileCoreServices.framework */,
 				9776209B16FA8F0B00B9F5B1 /* CFNetwork.framework */,

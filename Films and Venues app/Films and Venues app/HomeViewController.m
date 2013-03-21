@@ -64,6 +64,7 @@
     [_favoritesLabel setFont:[UIFont fontWithName:@"LTTetria Light" size:14]];
     
     _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
+    _directionsViewController = [[DirectionsViewController alloc] initWithNibName:@"DirectionsViewController" bundle:nil];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
     
@@ -83,6 +84,10 @@
         
         [self.navigationController pushViewController:_venuesViewController animated:YES];
     } else if (sender == _directionsButton) {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Home" style: UIBarButtonItemStyleBordered target: nil action: nil];
+        
+        [self.navigationItem setBackBarButtonItem: backButton];
+        [self.navigationController pushViewController:_directionsViewController animated:YES];
         
     } else if (sender == _playingButton) {
         
