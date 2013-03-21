@@ -12,6 +12,9 @@
 
 @interface AdvisoryModalPanel : UATitledModalPanel
 
+@property (nonatomic, retain) IBOutlet UIView *viewLoadedFromXib;
+@property (nonatomic, retain) IBOutlet UITextView *textView;
+
 - (id)initWithFrame:(CGRect)frame title:(NSString *)title;
 
 @end

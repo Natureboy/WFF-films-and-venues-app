@@ -9,6 +9,7 @@
 #import "AboutViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AdvisoryModalPanel.h"
+#import "PhotoViewController.h"
 
 @interface AboutViewController ()
 
@@ -43,6 +44,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     switch (indexPath.row) {
         case 0:
             [self setupAdvisoryStaffView];
@@ -90,7 +93,8 @@
 }
 
 -(void)setupPhotoGallery {
-    
+    PhotoViewController *photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController" bundle:nil];
+    [self.navigationController pushViewController:photoViewController animated:YES];
 }
 
 -(void)setupReviews {
