@@ -20,13 +20,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = NSLocalizedString(@"Photos", @"Photos");
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
+        
         _flickrContext = [[OFFlickrAPIContext alloc] initWithAPIKey:OBJECTIVE_FLICKR_SAMPLE_API_KEY sharedSecret:OBJECTIVE_FLICKR_SAMPLE_API_SHARED_SECRET];
         _flickrRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:_flickrContext];
         [_flickrRequest setDelegate:self];
         
         [self nextRandomPhotoAction:self];
-        
-        [[NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(nextRandomPhotoAction:) userInfo:nil repeats:YES] fire];
     }
     return self;
 }
@@ -34,26 +35,31 @@
 - (IBAction)nextRandomPhotoAction:(id)sender
 {
 	if (![_flickrRequest isRunning]) {
-		[_flickrRequest callAPIMethodWithGET:@"flickr.photos.getRecent" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"per_page", nil]];
+		[_flickrRequest callAPIMethodWithGET:@"flickr.photosets.getPhotos" arguments:[NSDictionary dictionaryWithObjectsAndKeys: @"72157627054385034", @"photoset_id", nil]];
 	}
+    
+//    if (![_flickrRequest isRunning]) {
+//		[_flickrRequest callAPIMethodWithGET:@"flickr.photos.getRecent" arguments:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"per_page", nil]];
+//	}
 }
 
-
-- (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary
-{
-	NSDictionary *photoDict = [[inResponseDictionary valueForKeyPath:@"photos.photo"] objectAtIndex:0];
-	
-	NSString *title = [photoDict objectForKey:@"title"];
-	if (![title length]) {
-		title = @"No title";
-	}
-	
-	//NSURL *photoSourcePage = [_flickrContext photoWebPageURLFromDictionary:photoDict];
-	//NSDictionary *linkAttr = [NSDictionary dictionaryWithObjectsAndKeys:photoSourcePage, NSFontAttributeName, nil];
-	//NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:title attributes:linkAttr];
-	//[[textView textStorage] setAttributedString:attrString];
+-(void)doStuff:(id)sender {
+    NSDictionary *photoDict = [_photos objectAtIndex:_index];
+    
+    _index++;
+    
+    if (_index == [_photos count]) _index = 0;
     
 	NSURL *photoURL = [_flickrContext photoSourceURLFromDictionary:photoDict size:OFFlickrSmallSize];
+    
+    NSDictionary *photoDict_two = [_photos objectAtIndex:_index];
+    
+    _index++;
+    
+    if (_index == [_photos count]) _index = 0;
+    
+	NSURL *photoURL_two = [_flickrContext photoSourceURLFromDictionary:photoDict_two size:OFFlickrSmallSize];
+    
 	NSString *htmlSource = [NSString stringWithFormat:
 							@"<html>"
 							@"<head>"
@@ -66,13 +72,36 @@
 							@"</body>"
 							@"</html>"
 							, photoURL];
+    NSString *htmlSource_two = [NSString stringWithFormat:
+							@"<html>"
+							@"<head>"
+							@"  <style>body { margin: 0; padding: 0; } </style>"
+							@"</head>"
+							@"<body>"
+							@"  <table border=\"0\" align=\"center\" valign=\"center\" cellspacing=\"0\" cellpadding=\"0\" height=\"240\">"
+							@"    <tr><td><img src=\"%@\" /></td></tr>"
+							@"  </table>"
+							@"</body>"
+							@"</html>"
+							, photoURL_two];
 	
 	[_webView loadHTMLString:htmlSource baseURL:nil];
+    [_webView_two loadHTMLString:htmlSource_two baseURL:nil];
+}
+
+
+- (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary
+{
+//    NSLog(@"inResponseDict %@", inResponseDictionary);
+    
+    _photos = [[inResponseDictionary objectForKey:@"photoset"] objectForKey:@"photo"];
+    
+    [[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(doStuff:) userInfo:nil repeats:YES] fire];
 }
 
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didFailWithError:(NSError *)inError
 {
-    NSLog(@"problem yo");
+    NSLog(@"%@", inError);
 }
 
 - (void)viewDidLoad

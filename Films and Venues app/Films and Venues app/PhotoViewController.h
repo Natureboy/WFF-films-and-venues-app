@@ -15,5 +15,10 @@
 @property (strong,nonatomic) OFFlickrAPIRequest *flickrRequest;
 
 @property (strong,nonatomic) IBOutlet UIWebView *webView;
+@property (strong,nonatomic) IBOutlet UIWebView *webView_two;
+
+@property (strong,nonatomic) NSArray *photos;
+
+@property (nonatomic) int index;
 
 @end
