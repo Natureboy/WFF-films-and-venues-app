@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VenuesViewController : UIViewController
+@interface VenuesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong,nonatomic) NSArray *venuesArray;
 
 @end

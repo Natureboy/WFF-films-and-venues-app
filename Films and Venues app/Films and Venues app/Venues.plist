@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Michigan Theatre</string>
+		<key>image_name</key>
+		<string>Street_Center_200_west</string>
+		<key>address</key>
+		<string>210 Center Street South Haven, MI 49090</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Listiak Auditorium</string>
+		<key>image_name</key>
+		<string>Listiak_Auditorium</string>
+		<key>address</key>
+		<string>600 Elkenberg Street South Haven, MI 49090</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Foundry Hall</string>
+		<key>image_name</key>
+		<string>Foundry_Hall</string>
+		<key>address</key>
+		<string>422 Eagle Street South Haven, MI 49090</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>South Beach (Outdoor Screening)</string>
+		<key>image_name</key>
+		<string>Outdoor Screening_South Beach</string>
+		<key>address</key>
+		<string>Water Street South Haven, MI 49090</string>
+	</dict>
+</array>
+</plist>
