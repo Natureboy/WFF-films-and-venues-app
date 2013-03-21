@@ -13,7 +13,6 @@
 
 @property (strong,nonatomic) OFFlickrAPIContext *flickrContext;
 @property (strong,nonatomic) OFFlickrAPIRequest *flickrRequest;
-
 @property (strong,nonatomic) IBOutlet UIWebView *webView;
 @property (strong,nonatomic) IBOutlet UIWebView *webView_two;
 

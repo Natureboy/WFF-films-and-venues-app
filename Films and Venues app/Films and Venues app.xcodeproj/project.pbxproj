@@ -95,6 +95,14 @@
 		977620B316FAB40500B9F5B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977620B216FAB40500B9F5B1 /* CoreLocation.framework */; };
 		977F333E16FADCA7006DAE5B /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F333B16FADCA7006DAE5B /* SVModalWebViewController.m */; };
 		977F333F16FADCA7006DAE5B /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F333D16FADCA7006DAE5B /* SVWebViewController.m */; };
+		977F334116FAE710006DAE5B /* Movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 977F334016FAE710006DAE5B /* Movies.plist */; };
+		977F334416FAEDF7006DAE5B /* ADLivelyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */; };
+		977F334916FAEF0B006DAE5B /* ScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */; };
+		977F334E16FB014F006DAE5B /* Outdoor Screening_South Beach.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */; };
+		977F334F16FB014F006DAE5B /* Foundry_Hall.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334B16FB014E006DAE5B /* Foundry_Hall.png */; };
+		977F335016FB014F006DAE5B /* Listiak_Auditorium.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */; };
+		977F335116FB014F006DAE5B /* Street_Center_200_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334D16FB014F006DAE5B /* Street_Center_200_west.png */; };
 		97D17C7A16CED48D00D9D964 /* SponsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7816CED48D00D9D964 /* SponsersViewController.m */; };
 		97D17C7B16CED48D00D9D964 /* SponsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C7916CED48D00D9D964 /* SponsersViewController.xib */; };
 		97D17C7F16CED4A100D9D964 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7D16CED4A100D9D964 /* ContactViewController.m */; };
@@ -223,6 +231,16 @@
 		977F333B16FADCA7006DAE5B /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
 		977F333C16FADCA7006DAE5B /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
 		977F333D16FADCA7006DAE5B /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
+		977F334016FAE710006DAE5B /* Movies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Movies.plist; sourceTree = "<group>"; };
+		977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADLivelyTableView.h; sourceTree = "<group>"; };
+		977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADLivelyTableView.m; sourceTree = "<group>"; };
+		977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
+		977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewController.xib; sourceTree = "<group>"; };
+		977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdoor Screening_South Beach.png"; sourceTree = "<group>"; };
+		977F334B16FB014E006DAE5B /* Foundry_Hall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Foundry_Hall.png; sourceTree = "<group>"; };
+		977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Listiak_Auditorium.png; sourceTree = "<group>"; };
+		977F334D16FB014F006DAE5B /* Street_Center_200_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Street_Center_200_west.png; sourceTree = "<group>"; };
 		97D17C7716CED48D00D9D964 /* SponsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsersViewController.h; sourceTree = "<group>"; };
 		97D17C7816CED48D00D9D964 /* SponsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsersViewController.m; sourceTree = "<group>"; };
 		97D17C7916CED48D00D9D964 /* SponsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsersViewController.xib; sourceTree = "<group>"; };
@@ -295,6 +313,11 @@
 		970B2EAF16A5FCD100607337 /* Films and Venues app */ = {
 			isa = PBXGroup;
 			children = (
+				977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */,
+				977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */,
+				977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */,
+				977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */,
+				977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */,
 				9776207216FA8E2200B9F5B1 /* ObjFlickr */,
 				97209C7616FA6D5B003292C4 /* UAModalPanel */,
 				977F333A16FADCA7006DAE5B /* SVModalWebViewController.h */,
@@ -339,7 +362,12 @@
 		970B2EB016A5FCD100607337 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */,
+				977F334B16FB014E006DAE5B /* Foundry_Hall.png */,
+				977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */,
+				977F334D16FB014F006DAE5B /* Street_Center_200_west.png */,
 				977620A116FAA70700B9F5B1 /* Venues.plist */,
+				977F334016FAE710006DAE5B /* Movies.plist */,
 				9776205D16FA715800B9F5B1 /* TETRB___.TTF */,
 				97209C5E16FA6CA0003292C4 /* close.png */,
 				97209C5F16FA6CA0003292C4 /* close@2x.png */,
@@ -556,6 +584,12 @@
 				9776206416FA873B00B9F5B1 /* HighlightsView.xib in Resources */,
 				9776207016FA8C8200B9F5B1 /* PhotoViewController.xib in Resources */,
 				977620A216FAA70700B9F5B1 /* Venues.plist in Resources */,
+				977F334116FAE710006DAE5B /* Movies.plist in Resources */,
+				977F334916FAEF0B006DAE5B /* ScheduleTableViewController.xib in Resources */,
+				977F334E16FB014F006DAE5B /* Outdoor Screening_South Beach.png in Resources */,
+				977F334F16FB014F006DAE5B /* Foundry_Hall.png in Resources */,
+				977F335016FB014F006DAE5B /* Listiak_Auditorium.png in Resources */,
+				977F335116FB014F006DAE5B /* Street_Center_200_west.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +625,8 @@
 				9776209A16FA8E4900B9F5B1 /* OFXMLMapper.m in Sources */,
 				977F333E16FADCA7006DAE5B /* SVModalWebViewController.m in Sources */,
 				977F333F16FADCA7006DAE5B /* SVWebViewController.m in Sources */,
+				977F334416FAEDF7006DAE5B /* ADLivelyTableView.m in Sources */,
+				977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

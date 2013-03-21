@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import <MapKit/MapKit.h>
 #import "SVModalWebViewController.h"
+#import "ScheduleTableViewController.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
 #define NUMBER_OF_SPONSERS 10
@@ -90,7 +91,8 @@
 
 -(void)btnClicked:(id)sender {
     if (sender == _scheduleButton) {
-        
+        ScheduleTableViewController *schedController = [[ScheduleTableViewController alloc] initWithNibName:@"ScheduleTableViewController" bundle:nil];
+        [self.navigationController pushViewController:schedController animated:YES];
     } else if (sender == _ticketsButton) {
         SVModalWebViewController *modalWebView = [[SVModalWebViewController alloc] initWithAddress:@"http://www.waterfrontfilm.org/wordpress/?product_cat=tickets"];
 

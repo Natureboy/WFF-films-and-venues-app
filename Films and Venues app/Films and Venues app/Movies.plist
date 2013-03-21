@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>movie</key>
+		<string>Wild Horse, Wild Ride</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>11:30 AM - 1:30 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>It&apos;s in the Blood</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>2-4 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Cinema Six</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Five Time Chamption</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>7-8:30 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Shouting Secrets</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9-10:30 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Below Zero</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>11 PM - 12 AM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>The Dynamiter</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9-10:30 AM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Free Samples</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Worth the Weight</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>2-3 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Sadermania</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Wuss</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>7-8:30 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Bucksville</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9-11 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Without</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9-10:30 AM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>We&apos;re Not Broke</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>11:30 PM - 1 AM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Buffalo Girls</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>2-3 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>My Best Day</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Dorfman</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>7-8:30 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Butterfly Rising</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9-10:30 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Love in Action</string>
+		<key>day</key>
+		<string>June 15</string>
+		<key>time</key>
+		<string>9:30-10:30 PM</string>
+		<key>venue</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Holy Rollers</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9-10:30 AM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Below Zero</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Wild Horse, Wild Ride</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>2-4 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Five Time Chamption</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Supporting Characters</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>7-8:30 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Virginia</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9-11 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>It&apos;s in the Blood</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>11 PM - 12 AM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Bucksville</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9-10:30 AM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Sadermania</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Wuss</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>2-3 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Write a Joe Schermann Song</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>The Dynamiter</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>7-8:30 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Scalene</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9-10:30 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Somebody&apos;s Hero</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9-10 AM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Butterfly Rising</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>We&apos;re Not Broke</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>2-3 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Buffalo Girls</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>My Best Day</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>7-8:15 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Green</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9:30-11 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>August</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>9:30-11 PM</string>
+		<key>venue</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Love in Action</string>
+		<key>day</key>
+		<string>June 16</string>
+		<key>time</key>
+		<string>11:30 PM - 12:30 AM</string>
+		<key>venue</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Wild Horse, Wild Ride</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>9-11 AM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Holy Rollers</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Shouting Secrets</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>2-3 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Supporting Characters</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Virginia</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>9-11 PM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>It&apos;s in the Blood</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>11 PM - 12 AM</string>
+		<key>venue</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Write a Joe Schermann Song</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>9-11 AM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Worth the Freight</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Queen of Versailles</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>2-3:30 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Scalene</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Free Samples</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>7-8:15 PM</string>
+		<key>venue</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Dorfman</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>9-10 AM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Somebody&apos;s Hero</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>11:30 AM - 1 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>SHORTS ENCORE</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>2-3:15 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Green</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>4:30-6 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Without</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>7-8:15 PM</string>
+		<key>venue</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Venue 8: Biker Chef Event</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>2-3:15 PM</string>
+		<key>venue</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>movie</key>
+		<string>Kawa</string>
+		<key>day</key>
+		<string>June 17</string>
+		<key>time</key>
+		<string>9-10 PM</string>
+		<key>venue</key>
+		<string>3</string>
+	</dict>
+</array>
+</plist>
