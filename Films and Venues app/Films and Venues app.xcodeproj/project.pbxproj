@@ -316,37 +316,13 @@
 		970B2EAF16A5FCD100607337 /* Films and Venues app */ = {
 			isa = PBXGroup;
 			children = (
-				977F335216FB0772006DAE5B /* DMSlidingTableViewCell.h */,
-				977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */,
-				977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */,
-				977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */,
-				977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */,
-				977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */,
-				977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */,
+				972EC88F16FB94E700297EC8 /* Backbone */,
+				972EC88E16FB94D800297EC8 /* iCarousel */,
+				972EC88D16FB94C400297EC8 /* About */,
+				972EC88C16FB94B200297EC8 /* SVWeb */,
 				9776207216FA8E2200B9F5B1 /* ObjFlickr */,
 				97209C7616FA6D5B003292C4 /* UAModalPanel */,
-				977F333A16FADCA7006DAE5B /* SVModalWebViewController.h */,
-				977F333B16FADCA7006DAE5B /* SVModalWebViewController.m */,
-				977F333C16FADCA7006DAE5B /* SVWebViewController.h */,
-				977F333D16FADCA7006DAE5B /* SVWebViewController.m */,
-				9776206C16FA8C8200B9F5B1 /* PhotoViewController.h */,
-				9776206D16FA8C8200B9F5B1 /* PhotoViewController.m */,
-				9776206E16FA8C8200B9F5B1 /* PhotoViewController.xib */,
-				97209C5516FA6C3E003292C4 /* AdvisoryModalPanel.h */,
-				97209C5616FA6C3E003292C4 /* AdvisoryModalPanel.m */,
-				9776205F16FA76AC00B9F5B1 /* AdvisoryView.xib */,
-				9776206116FA854500B9F5B1 /* ReviewsView.xib */,
-				9776206316FA873B00B9F5B1 /* HighlightsView.xib */,
-				970993D016FA5A9D0026A8A5 /* AboutViewController.h */,
-				970993D116FA5A9D0026A8A5 /* AboutViewController.m */,
-				970993D216FA5A9D0026A8A5 /* AboutViewController.xib */,
-				974C26B316F94BB1006F06FD /* HomeViewController.h */,
-				974C26B416F94BB1006F06FD /* HomeViewController.m */,
-				974C26B516F94BB1006F06FD /* HomeViewController.xib */,
-				972F87BC16D1FC680092E80D /* iCarousel.h */,
-				972F87BD16D1FC680092E80D /* iCarousel.m */,
-				970B2EB816A5FCD100607337 /* MainAppDelegate.h */,
-				970B2EB916A5FCD100607337 /* MainAppDelegate.m */,
+				972EC88B16FB948F00297EC8 /* Schedule */,
 				972F882116D31E040092E80D /* VenuesViewController.h */,
 				972F882216D31E040092E80D /* VenuesViewController.m */,
 				972F882316D31E040092E80D /* VenuesViewController.xib */,
@@ -450,6 +426,70 @@
 				97209C5B16FA6C8F003292C4 /* UATitledModalPanel.m */,
 			);
 			name = UAModalPanel;
+			sourceTree = "<group>";
+		};
+		972EC88B16FB948F00297EC8 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				977F335216FB0772006DAE5B /* DMSlidingTableViewCell.h */,
+				977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */,
+				977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */,
+				977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */,
+				977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */,
+				977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */,
+				977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		972EC88C16FB94B200297EC8 /* SVWeb */ = {
+			isa = PBXGroup;
+			children = (
+				977F333A16FADCA7006DAE5B /* SVModalWebViewController.h */,
+				977F333B16FADCA7006DAE5B /* SVModalWebViewController.m */,
+				977F333C16FADCA7006DAE5B /* SVWebViewController.h */,
+				977F333D16FADCA7006DAE5B /* SVWebViewController.m */,
+			);
+			name = SVWeb;
+			sourceTree = "<group>";
+		};
+		972EC88D16FB94C400297EC8 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				970993D016FA5A9D0026A8A5 /* AboutViewController.h */,
+				970993D116FA5A9D0026A8A5 /* AboutViewController.m */,
+				970993D216FA5A9D0026A8A5 /* AboutViewController.xib */,
+				9776206C16FA8C8200B9F5B1 /* PhotoViewController.h */,
+				9776206D16FA8C8200B9F5B1 /* PhotoViewController.m */,
+				9776206E16FA8C8200B9F5B1 /* PhotoViewController.xib */,
+				97209C5516FA6C3E003292C4 /* AdvisoryModalPanel.h */,
+				97209C5616FA6C3E003292C4 /* AdvisoryModalPanel.m */,
+				9776205F16FA76AC00B9F5B1 /* AdvisoryView.xib */,
+				9776206116FA854500B9F5B1 /* ReviewsView.xib */,
+				9776206316FA873B00B9F5B1 /* HighlightsView.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		972EC88E16FB94D800297EC8 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				972F87BC16D1FC680092E80D /* iCarousel.h */,
+				972F87BD16D1FC680092E80D /* iCarousel.m */,
+			);
+			name = iCarousel;
+			sourceTree = "<group>";
+		};
+		972EC88F16FB94E700297EC8 /* Backbone */ = {
+			isa = PBXGroup;
+			children = (
+				974C26B316F94BB1006F06FD /* HomeViewController.h */,
+				974C26B416F94BB1006F06FD /* HomeViewController.m */,
+				974C26B516F94BB1006F06FD /* HomeViewController.xib */,
+				970B2EB816A5FCD100607337 /* MainAppDelegate.h */,
+				970B2EB916A5FCD100607337 /* MainAppDelegate.m */,
+			);
+			name = Backbone;
 			sourceTree = "<group>";
 		};
 		9776207216FA8E2200B9F5B1 /* ObjFlickr */ = {

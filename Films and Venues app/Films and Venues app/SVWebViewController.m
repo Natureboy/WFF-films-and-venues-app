@@ -295,10 +295,10 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    //self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
-    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = 1.7;"];
-    [webView stringByEvaluatingJavaScriptFromString:jsCommand];
+//    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = 1.7;"];
+//    [webView stringByEvaluatingJavaScriptFromString:jsCommand];
     
     [self updateToolbarItems];
 }

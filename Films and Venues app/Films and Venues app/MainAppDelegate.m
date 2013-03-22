@@ -22,7 +22,7 @@
     
     /* changes default text of the tab bar */
     NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary: [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
-    [attributes setValue:[UIFont fontWithName:@"OneDirection" size:13] forKey:UITextAttributeFont];
+    [attributes setValue:[UIFont fontWithName:@"LTTetria Bold" size:12] forKey:UITextAttributeFont];
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     [[UINavigationBar appearance] setTitleTextAttributes: @{

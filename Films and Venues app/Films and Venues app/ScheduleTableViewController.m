@@ -47,8 +47,9 @@
     
     
     ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
-    livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
-
+//    livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
+        livelyTableView.initialCellTransformBlock = ADLivelyTransformHelix;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
