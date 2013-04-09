@@ -50,6 +50,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SingleVenueViewController *svvc = [[SingleVenueViewController alloc] initWithNibName:@"SingleVenueViewController" bundle:nil];
     svvc.venueDict= [_venuesArray objectAtIndex:indexPath.row];
+    svvc.venueValue = indexPath.row;
     [self.navigationController pushViewController:svvc animated:YES];
 }
 

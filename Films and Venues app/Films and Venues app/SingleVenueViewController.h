@@ -10,13 +10,17 @@
 
 #define kAllPinsDone @"kAllPinsDone"
 
-@interface SingleVenueViewController : UIViewController
+@interface SingleVenueViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong,nonatomic) NSDictionary *venueDict;
+
+@property (strong,nonatomic) NSMutableArray *movies;
 
 @property (strong,nonatomic) IBOutlet UIImageView *imageView;
 @property (strong,nonatomic) NSMutableArray *holderArray;
 
 @property (nonatomic) int val;
+
+@property (nonatomic) int venueValue;
 
 @end

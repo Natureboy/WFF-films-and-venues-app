@@ -9,6 +9,7 @@
 #import "SingleVenueViewController.h"
 #import "BButton.h"
 #import <MapKit/MapKit.h>
+#import "DMSlidingTableViewCell.h"
 
 @interface SingleVenueViewController ()
 
@@ -21,6 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+
     }
     return self;
 }
@@ -28,6 +31,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Movies" ofType:@"plist"];
+    
+    // Build the array from the plist
+    NSArray *movieArray = [[NSArray alloc] initWithContentsOfFile:path];
+    
+    _movies = [[NSMutableArray alloc] init];
+    
+    NSLog(@"venue value: %d", _venueValue);
+    for (NSDictionary *dict in movieArray) {
+        NSLog(@"dict val: %d", [[dict objectForKey:@"venue"] intValue]);
+        if ([[dict objectForKey:@"venue"] intValue] == _venueValue) {
+            [_movies addObject:dict];
+        }
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsDone) name:kAllPinsDone object:nil];
     
@@ -95,5 +115,70 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Movies";
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [_movies count];
+}
+
+//- (void) resetCellsState {
+//    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
+//        [cell setBackgroundVisible:NO];
+//    }];
+//}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    DMSlidingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[DMSlidingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    for(UIView *eachView in [cell subviews])
+        [eachView removeFromSuperview];
+    
+    NSString *str = [NSString stringWithFormat:@"%@ -- %@", [[_movies objectAtIndex:indexPath.row] objectForKey:@"day"],[[_movies objectAtIndex:indexPath.row] objectForKey:@"time"]];
+    
+    // Configure the cell...
+    UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 180, 50)];
+    [lbl1 setFont:[UIFont fontWithName:@"LTTetria Bold" size:18.0]];
+    [lbl1 setTextColor:[UIColor blackColor]];
+    [lbl1 setBackgroundColor:[UIColor clearColor]];
+    lbl1.text = [[_movies objectAtIndex:indexPath.row] objectForKey:@"movie"];
+    [cell addSubview:lbl1];
+    
+    
+    UILabel *lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(20, 35, 200, 20)];
+    [lbl2 setFont:[UIFont fontWithName:@"LTTetria Light" size:14.0]];
+    [lbl2 setTextColor:[UIColor grayColor]];
+    [lbl2 setBackgroundColor:[UIColor clearColor]];
+    lbl2.text = str;
+    [cell addSubview:lbl2];
+    
+    
+    return cell;
+}
+
 
 @end
