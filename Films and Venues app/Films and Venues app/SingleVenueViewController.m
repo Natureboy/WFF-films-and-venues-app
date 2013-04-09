@@ -10,6 +10,7 @@
 #import "BButton.h"
 #import <MapKit/MapKit.h>
 #import "DMSlidingTableViewCell.h"
+#import "LBYouTubePlayerController.h"
 
 @interface SingleVenueViewController ()
 
@@ -23,7 +24,13 @@
     if (self) {
         // Custom initialization
         
-
+        _trailers = [[NSMutableArray alloc] init];
+        NSArray *movieNames = @[@"Wild Horse, Wild Ride", @"It's in the Blood", @"Cinema Six", @"Five Time Champion", @"Shouting Secrets"];
+        NSArray *trailerURL = @[@"http://www.youtube.com/watch?v=iPeW_cLC04k&feature=player_embedded", @"http://www.youtube.com/watch?v=ZSg_WtRTRjU&feature=player_embedded", @"http://www.youtube.com/watch?v=4SIASWxfwWc&feature=player_embedded", @"http://www.youtube.com/watch?v=Tty2h_OYEVA&feature=player_embedded", @"http://www.youtube.com/watch?v=-G3Yu0O5o7Q&feature=player_embedded"];
+        for (int i = 0; i < 5; i++) {
+            NSDictionary *dict = [[NSDictionary alloc] initWithObjects:@[[movieNames objectAtIndex:i], [trailerURL objectAtIndex:i] ] forKeys:@[@"movie", @"url"]];
+            [_trailers addObject:dict];
+        }
     }
     return self;
 }
@@ -176,7 +183,7 @@
     lbl2.text = str;
     [cell addSubview:lbl2];
     
-    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 25, 50, 30)];
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 15, 50, 30)];
     favButton.tag = indexPath.row + 1000;
     
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
@@ -195,7 +202,55 @@
     [favButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:favButton];
     
+    for (int i = 0; i < [_trailers count]; i++) {
+        NSDictionary *dict = [_trailers objectAtIndex:i];
+        if ([movie isEqualToString:[dict objectForKey:@"movie"]]) {
+            UIButton *playButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 15, 30, 30)];
+            playButton.tag = i + 100;
+            [playButton addTarget:self action:@selector(playTrailer:) forControlEvents:UIControlEventTouchUpInside];
+            [playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
+            [cell addSubview:playButton];
+            break;
+        }
+    }
+    
     return cell;
+}
+
+-(void)playTrailer:(id)sender {
+    UIButton *btnClicked = (UIButton *)sender;
+    int tagVal = btnClicked.tag - 100;
+    
+    NSString *url = [[_trailers objectAtIndex:tagVal] objectForKey:@"url"];
+    
+    self.controller = [[LBYouTubePlayerController alloc] initWithYouTubeURL:[NSURL URLWithString:url] quality:LBYouTubeVideoQualityLarge];
+    self.controller.controlStyle = MPMovieControlStyleFullscreen;
+    self.controller.delegate = self;
+    //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
+    
+    self.controller.view.frame = self.view.window.frame;
+    //self.controller.view.center = self.view.center;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self.view.window addSubview:self.controller.view];
+    [self.controller play];
+    
+}
+
+-(void)videoPlayBackDidFinish:(NSNotification*)notification  {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    
+    [self.controller stop];
+    [self.controller.view removeFromSuperview];
+    self.controller = nil;
+}
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    NSLog(@"Did extract video source:%@", videoURL);
+}
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+    NSLog(@"Failed loading video due to error:%@", error);
 }
 
 -(BOOL)isMovieFavorited:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {

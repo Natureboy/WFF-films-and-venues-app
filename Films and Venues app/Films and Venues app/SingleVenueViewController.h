@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBYouTube.h"
 
 #define kAllPinsDone @"kAllPinsDone"
 
-@interface SingleVenueViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SingleVenueViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, LBYouTubePlayerControllerDelegate>
+
+@property (nonatomic, strong) LBYouTubePlayerController* controller;
 
 @property (strong,nonatomic) NSDictionary *venueDict;
 
 @property (strong,nonatomic) NSMutableArray *movies;
+@property (strong,nonatomic) NSMutableArray *trailers;
 
 @property (strong,nonatomic) IBOutlet UIImageView *imageView;
 @property (strong,nonatomic) NSMutableArray *holderArray;
