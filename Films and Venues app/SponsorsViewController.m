@@ -1,23 +1,24 @@
 //
-//  SponsersViewController.m
+//  SponsorsViewController.m
 //  Films and Venues app
 //
-//  Created by Jordan Carney on 2/15/13.
+//  Created by Jordan Carney on 4/9/13.
 //  Copyright (c) 2013 Jordan Carney. All rights reserved.
 //
 
-#import "SponsersViewController.h"
+#import "SponsorsViewController.h"
 
-@interface SponsersViewController ()
+@interface SponsorsViewController ()
 
 @end
 
-@implementation SponsersViewController
+@implementation SponsorsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        // Custom initialization
         self.title = NSLocalizedString(@"Sponsors", @"Sponsors");
         self.tabBarItem.image = [UIImage imageNamed:@"sponsers_icon"];
     }
@@ -27,6 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_titleLabel setFont:[UIFont fontWithName:@"LTTetria Bold" size:18]];
+    
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

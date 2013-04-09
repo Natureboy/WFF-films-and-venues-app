@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class HomeViewController, AboutViewController, SponsersViewController, ContactViewController, MoreViewController;
+@class HomeViewController, AboutViewController, SponsorsViewController, ContactViewController, MoreViewController;
 
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) HomeViewController *homeViewController;
 @property (strong, nonatomic) AboutViewController *aboutViewController;
-@property (strong, nonatomic) SponsersViewController *sponsersViewController;
+@property (strong, nonatomic) SponsorsViewController *sponsorsViewController;
 @property (strong, nonatomic) ContactViewController *contactViewController;
 @property (strong, nonatomic) MoreViewController *moreViewController;
 

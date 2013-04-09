@@ -9,7 +9,7 @@
 #import "MainAppDelegate.h"
 #import "HomeViewController.h"
 #import "AboutViewController.h"
-#import "SponsersViewController.h"
+#import "SponsorsViewController.h"
 #import "ContactViewController.h"
 #import "MoreViewController.h"
 
@@ -45,8 +45,8 @@
     _aboutNavController.navigationBar.barStyle = UIBarStyleBlack;
     
     /* sponsers tab */
-    _sponsersViewController = [[SponsersViewController alloc] initWithNibName:@"SponsersViewController" bundle:nil];
-    _sponsersNavController = [[UINavigationController alloc] initWithRootViewController:_sponsersViewController];
+    _sponsorsViewController = [[SponsorsViewController alloc] initWithNibName:@"SponsorsViewController" bundle:nil];
+    _sponsersNavController = [[UINavigationController alloc] initWithRootViewController:_sponsorsViewController];
     _sponsersNavController.navigationBar.barStyle = UIBarStyleBlack;
     
     /* contact tab */

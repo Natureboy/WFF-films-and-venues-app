@@ -124,8 +124,16 @@
 		977F335016FB014F006DAE5B /* Listiak_Auditorium.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */; };
 		977F335116FB014F006DAE5B /* Street_Center_200_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334D16FB014F006DAE5B /* Street_Center_200_west.png */; };
 		977F335416FB0773006DAE5B /* DMSlidingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */; };
-		97D17C7A16CED48D00D9D964 /* SponsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7816CED48D00D9D964 /* SponsersViewController.m */; };
-		97D17C7B16CED48D00D9D964 /* SponsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C7916CED48D00D9D964 /* SponsersViewController.xib */; };
+		979CA6EA17147119002EFE92 /* SponsorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6E817147119002EFE92 /* SponsorsViewController.m */; };
+		979CA6EB17147119002EFE92 /* SponsorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6E917147119002EFE92 /* SponsorsViewController.xib */; };
+		979CA6F117147243002EFE92 /* wsnx1045.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6EC17147243002EFE92 /* wsnx1045.jpg */; };
+		979CA6F217147243002EFE92 /* WFF2010_spons_25.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6ED17147243002EFE92 /* WFF2010_spons_25.gif */; };
+		979CA6F317147243002EFE92 /* WFF2010_spons_16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6EE17147243002EFE92 /* WFF2010_spons_16.gif */; };
+		979CA6F417147243002EFE92 /* WFF2010_spons_14.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6EF17147243002EFE92 /* WFF2010_spons_14.gif */; };
+		979CA6F517147243002EFE92 /* eurochannel_2012.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6F017147243002EFE92 /* eurochannel_2012.jpg */; };
+		979CA6F717147284002EFE92 /* WFF2010_spons_22.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6F617147284002EFE92 /* WFF2010_spons_22.gif */; };
+		979CA6F9171473AE002EFE92 /* WFF2010_spons_19.gif in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6F8171473AE002EFE92 /* WFF2010_spons_19.gif */; };
+		979CA6FB171473CB002EFE92 /* thefox1013.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6FA171473CB002EFE92 /* thefox1013.jpg */; };
 		97D17C7F16CED4A100D9D964 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C7D16CED4A100D9D964 /* ContactViewController.m */; };
 		97D17C8016CED4A100D9D964 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D17C7E16CED4A100D9D964 /* ContactViewController.xib */; };
 		97D17C8416CED4AE00D9D964 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D17C8216CED4AE00D9D964 /* MoreViewController.m */; };
@@ -291,9 +299,17 @@
 		977F334D16FB014F006DAE5B /* Street_Center_200_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Street_Center_200_west.png; sourceTree = "<group>"; };
 		977F335216FB0772006DAE5B /* DMSlidingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSlidingTableViewCell.h; sourceTree = "<group>"; };
 		977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSlidingTableViewCell.m; sourceTree = "<group>"; };
-		97D17C7716CED48D00D9D964 /* SponsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsersViewController.h; sourceTree = "<group>"; };
-		97D17C7816CED48D00D9D964 /* SponsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsersViewController.m; sourceTree = "<group>"; };
-		97D17C7916CED48D00D9D964 /* SponsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsersViewController.xib; sourceTree = "<group>"; };
+		979CA6E717147119002EFE92 /* SponsorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorsViewController.h; sourceTree = "<group>"; };
+		979CA6E817147119002EFE92 /* SponsorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorsViewController.m; sourceTree = "<group>"; };
+		979CA6E917147119002EFE92 /* SponsorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorsViewController.xib; sourceTree = "<group>"; };
+		979CA6EC17147243002EFE92 /* wsnx1045.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wsnx1045.jpg; sourceTree = "<group>"; };
+		979CA6ED17147243002EFE92 /* WFF2010_spons_25.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WFF2010_spons_25.gif; sourceTree = "<group>"; };
+		979CA6EE17147243002EFE92 /* WFF2010_spons_16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WFF2010_spons_16.gif; sourceTree = "<group>"; };
+		979CA6EF17147243002EFE92 /* WFF2010_spons_14.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WFF2010_spons_14.gif; sourceTree = "<group>"; };
+		979CA6F017147243002EFE92 /* eurochannel_2012.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eurochannel_2012.jpg; sourceTree = "<group>"; };
+		979CA6F617147284002EFE92 /* WFF2010_spons_22.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WFF2010_spons_22.gif; sourceTree = "<group>"; };
+		979CA6F8171473AE002EFE92 /* WFF2010_spons_19.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WFF2010_spons_19.gif; sourceTree = "<group>"; };
+		979CA6FA171473CB002EFE92 /* thefox1013.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thefox1013.jpg; sourceTree = "<group>"; };
 		97D17C7C16CED4A100D9D964 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		97D17C7D16CED4A100D9D964 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		97D17C7E16CED4A100D9D964 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
@@ -330,6 +346,17 @@
 		970B2E9A16A5FCD100607337 = {
 			isa = PBXGroup;
 			children = (
+				979CA6E717147119002EFE92 /* SponsorsViewController.h */,
+				979CA6E817147119002EFE92 /* SponsorsViewController.m */,
+				979CA6E917147119002EFE92 /* SponsorsViewController.xib */,
+				979CA6F617147284002EFE92 /* WFF2010_spons_22.gif */,
+				979CA6EC17147243002EFE92 /* wsnx1045.jpg */,
+				979CA6ED17147243002EFE92 /* WFF2010_spons_25.gif */,
+				979CA6EE17147243002EFE92 /* WFF2010_spons_16.gif */,
+				979CA6EF17147243002EFE92 /* WFF2010_spons_14.gif */,
+				979CA6F017147243002EFE92 /* eurochannel_2012.jpg */,
+				979CA6FA171473CB002EFE92 /* thefox1013.jpg */,
+				979CA6F8171473AE002EFE92 /* WFF2010_spons_19.gif */,
 				970CD0741713D3CB00C50B1B /* MediaPlayer.framework */,
 				977620B216FAB40500B9F5B1 /* CoreLocation.framework */,
 				977620B016FAAEDF00B9F5B1 /* MapKit.framework */,
@@ -381,9 +408,6 @@
 				970CD0661713C69B00C50B1B /* FavoritesTableViewController.m */,
 				970CD0671713C69B00C50B1B /* FavoritesTableViewController.xib */,
 				972F882316D31E040092E80D /* VenuesViewController.xib */,
-				97D17C7716CED48D00D9D964 /* SponsersViewController.h */,
-				97D17C7816CED48D00D9D964 /* SponsersViewController.m */,
-				97D17C7916CED48D00D9D964 /* SponsersViewController.xib */,
 				97D17C7C16CED4A100D9D964 /* ContactViewController.h */,
 				97D17C7D16CED4A100D9D964 /* ContactViewController.m */,
 				97D17C7E16CED4A100D9D964 /* ContactViewController.xib */,
@@ -644,7 +668,6 @@
 				970B2EBC16A5FCD100607337 /* Default.png in Resources */,
 				970B2EBE16A5FCD100607337 /* Default@2x.png in Resources */,
 				970B2EC016A5FCD100607337 /* Default-568h@2x.png in Resources */,
-				97D17C7B16CED48D00D9D964 /* SponsersViewController.xib in Resources */,
 				97D17C8016CED4A100D9D964 /* ContactViewController.xib in Resources */,
 				97D17C8516CED4AE00D9D964 /* MoreViewController.xib in Resources */,
 				97D17C9916CEE01300D9D964 /* home_icon@2x.png in Resources */,
@@ -723,6 +746,15 @@
 				970CD0781713D7F000C50B1B /* play-button@2x.png in Resources */,
 				970CD0791713D7F000C50B1B /* play-button.png in Resources */,
 				970CD07E17145B2F00C50B1B /* SingleVenueViewController.xib in Resources */,
+				979CA6EB17147119002EFE92 /* SponsorsViewController.xib in Resources */,
+				979CA6F117147243002EFE92 /* wsnx1045.jpg in Resources */,
+				979CA6F217147243002EFE92 /* WFF2010_spons_25.gif in Resources */,
+				979CA6F317147243002EFE92 /* WFF2010_spons_16.gif in Resources */,
+				979CA6F417147243002EFE92 /* WFF2010_spons_14.gif in Resources */,
+				979CA6F517147243002EFE92 /* eurochannel_2012.jpg in Resources */,
+				979CA6F717147284002EFE92 /* WFF2010_spons_22.gif in Resources */,
+				979CA6F9171473AE002EFE92 /* WFF2010_spons_19.gif in Resources */,
+				979CA6FB171473CB002EFE92 /* thefox1013.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,7 +767,6 @@
 			files = (
 				970B2EB616A5FCD100607337 /* main.m in Sources */,
 				970B2EBA16A5FCD100607337 /* MainAppDelegate.m in Sources */,
-				97D17C7A16CED48D00D9D964 /* SponsersViewController.m in Sources */,
 				97D17C7F16CED4A100D9D964 /* ContactViewController.m in Sources */,
 				97D17C8416CED4AE00D9D964 /* MoreViewController.m in Sources */,
 				972F87BE16D1FC680092E80D /* iCarousel.m in Sources */,
@@ -767,6 +798,7 @@
 				970CD0731713D3B000C50B1B /* LBYouTubePlayerController.m in Sources */,
 				970CD07D17145B2F00C50B1B /* SingleVenueViewController.m in Sources */,
 				970CD081171461EB00C50B1B /* BButton.m in Sources */,
+				979CA6EA17147119002EFE92 /* SponsorsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
