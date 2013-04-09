@@ -7,6 +7,7 @@
 //
 
 #import "VenuesViewController.h"
+#import "SingleVenueViewController.h"
 
 @interface VenuesViewController ()
 
@@ -47,7 +48,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SingleVenueViewController *svvc = [[SingleVenueViewController alloc] initWithNibName:@"SingleVenueViewController" bundle:nil];
+    svvc.venueDict= [_venuesArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:svvc animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
