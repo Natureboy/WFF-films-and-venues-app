@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
         self.title = @"Schedule";
         
         // Path to the plist (in the application bundle)
@@ -50,11 +51,21 @@
             }
         }
         
-        _venuesArray = [[NSArray alloc] initWithContentsOfFile:path]; 
+        _venuesArray = [[NSArray alloc] initWithContentsOfFile:path];
+        
+        
+        _trailers = [[NSMutableArray alloc] init];
+        NSArray *movieNames = @[@"Wild Horse, Wild Ride", @"It's in the Blood", @"Cinema Six", @"Five Time Chamption", @"Shouting Secrets"];
+        NSArray *trailerURL = @[@"http://www.youtube.com/watch?v=iPeW_cLC04k&feature=player_embedded", @"http://www.youtube.com/watch?v=ZSg_WtRTRjU&feature=player_embedded", @"http://www.youtube.com/watch?v=4SIASWxfwWc&feature=player_embedded", @"http://www.youtube.com/watch?v=Tty2h_OYEVA&feature=player_embedded", @"http://www.youtube.com/watch?v=-G3Yu0O5o7Q&feature=player_embedded"];
+        for (int i = 0; i < 5; i++) {
+            NSDictionary *dict = [[NSDictionary alloc] initWithObjects:@[[movieNames objectAtIndex:i], [trailerURL objectAtIndex:i] ] forKeys:@[@"movie", @"url"]];
+            [_trailers addObject:dict];
+        }
     }
     
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -140,7 +151,7 @@
     [str appendFormat:@"%@", time];
     
     // Configure the cell...
-    UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(90, 0, 220, 50)];
+    UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(90, 0, 180, 50)];
     [lbl1 setFont:[UIFont fontWithName:@"LTTetria Bold" size:18.0]];
     [lbl1 setTextColor:[UIColor blackColor]];
     [lbl1 setBackgroundColor:[UIColor clearColor]];
@@ -155,16 +166,30 @@
     lbl2.text = str;
     [cell addSubview:lbl2];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:img];
-    imageView.frame = CGRectMake(10, 10, 60, 60);
-    [cell addSubview:imageView];
+    UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
+    [imageButton setImage:img forState:UIControlStateNormal];
+    [cell addSubview:imageButton];
+    
+    NSString *movie = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
+    
+    for (int i = 0; i < [_trailers count]; i++) {
+        NSDictionary *dict = [_trailers objectAtIndex:i];
+        if ([movie isEqualToString:[dict objectForKey:@"movie"]]) {
+            UIButton *playButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
+            playButton.tag = i + 100;
+            [playButton addTarget:self action:@selector(playTrailer:) forControlEvents:UIControlEventTouchUpInside];
+            [playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
+            [imageButton addSubview:playButton];
+            break;
+        }
+    }
     
     UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 25, 50, 30)];
     
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites"] forState:UIControlStateNormal];
     
-    NSString *movie = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
+
     NSString *day = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"day"];
     
     if ([self isMovieFavorited:movie withTime:time withDay:day]) {
@@ -178,6 +203,42 @@
     
     return cell;
 }
+
+-(void)playTrailer:(id)sender {
+    UIButton *btnClicked = (UIButton *)sender;
+    int tagVal = btnClicked.tag - 100;
+    
+    NSString *url = [[_trailers objectAtIndex:tagVal] objectForKey:@"url"];
+    
+    self.controller = [[LBYouTubePlayerController alloc] initWithYouTubeURL:[NSURL URLWithString:url] quality:LBYouTubeVideoQualityLarge];
+    self.controller.controlStyle = MPMovieControlStyleFullscreen;
+    self.controller.delegate = self;
+    //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
+    self.controller.view.frame = self.view.bounds;
+    //self.controller.view.center = self.view.center;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self.view addSubview:self.controller.view];
+    [self.controller play];
+
+}
+
+-(void)videoPlayBackDidFinish:(NSNotification*)notification  {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    
+    [self.controller stop];
+    [self.controller.view removeFromSuperview];
+    self.controller = nil;
+}
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerController *)controller didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    NSLog(@"Did extract video source:%@", videoURL);
+}
+
+-(void)youTubePlayerViewController:(LBYouTubePlayerController *)controller failedExtractingYouTubeURLWithError:(NSError *)error {
+    NSLog(@"Failed loading video due to error:%@", error);
+}
+
 
 -(BOOL)isMovieFavorited:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
     NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];

@@ -11,6 +11,7 @@
 #import "SVModalWebViewController.h"
 #import "ScheduleTableViewController.h"
 #import "UIImage+Alpha.h"
+#import "FavoritesTableViewController.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
 #define NUMBER_OF_SPONSERS 10
@@ -134,7 +135,8 @@
     } else if (sender == _playingButton) {
         
     } else if (sender == _favoritesButton) {
-        
+        FavoritesTableViewController *ftvc = [[FavoritesTableViewController alloc] initWithNibName:@"FavoritesTableViewController" bundle:nil];
+        [self.navigationController pushViewController:ftvc animated:YES];
     }
 }
 

@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBYouTube.h"
 
-@interface ScheduleTableViewController : UITableViewController
+@interface ScheduleTableViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
+    LBYouTubePlayerController* controller;
+}
 
 @property (strong,nonatomic) NSArray *movieArray;
 @property (strong,nonatomic) NSArray *venuesArray;
 @property (strong,nonatomic) NSMutableArray *splitMovieArray;
+@property (strong,nonatomic) NSMutableArray *trailers;
+
+@property (strong,nonatomic) NSString *lastClickedMovie;
+
+@property (nonatomic, strong) LBYouTubePlayerController* controller;
 
 @end

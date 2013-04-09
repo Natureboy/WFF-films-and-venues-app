@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoritesTableViewController : UITableViewController
+@interface FavoritesTableViewController : UITableViewController <UIWebViewDelegate>
+
+@property (strong,nonatomic) NSMutableArray *favoritesArray;
+@property (strong,nonatomic) NSMutableArray *favoritesSplitArray;
+@property (strong,nonatomic) NSMutableArray *trailers;
+@property (strong,nonatomic) NSArray *venuesArray;
 
 @end
