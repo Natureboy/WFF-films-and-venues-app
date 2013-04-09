@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "SVModalWebViewController.h"
 #import "ScheduleTableViewController.h"
+#import "UIImage+Alpha.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
 #define NUMBER_OF_SPONSERS 10
@@ -151,24 +152,34 @@
     return NUMBER_OF_SPONSERS;
 }
 
+
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
 	UIButton *button = (UIButton *)view;
 	if (button == nil)
 	{
 		//no button available to recycle, so create new one
-		UIImage *image = [UIImage imageNamed:@"page.png"];
+        NSString *imageName;
+        
+        NSLog(@"index = %d", index);
+        
+        if (index < 5) {
+            imageName  = [NSString stringWithFormat:@"img%d.png", index + 1];
+        } else if (index == 8) {
+            imageName  = @"img4.png";
+        } else if (index == 9) {
+            imageName  = @"img5.png";
+        }
+        
+		UIImage *image = [[UIImage imageNamed:imageName] transparentBorderImage:1];
+        
+        
 		button = [UIButton buttonWithType:UIButtonTypeCustom];
 		button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-		[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 		[button setBackgroundImage:image forState:UIControlStateNormal];
-		button.titleLabel.font = [button.titleLabel.font fontWithSize:50];
 		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
 	}
-	
-	//set button label
-	[button setTitle:[NSString stringWithFormat:@"%i", index] forState:UIControlStateNormal];
-	
+
 	return button;
 }
 
