@@ -176,9 +176,100 @@
     lbl2.text = str;
     [cell addSubview:lbl2];
     
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 25, 50, 30)];
+    favButton.tag = indexPath.row + 1000;
+    
+    [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
+    [favButton setImage:[UIImage imageNamed:@"bttn-favorites"] forState:UIControlStateNormal];
+    
+    NSString *movie = [[_movies objectAtIndex:indexPath.row] objectForKey:@"movie"];
+    NSString *day = [[_movies objectAtIndex:indexPath.row] objectForKey:@"day"];
+    NSString *time = [[_movies objectAtIndex:indexPath.row] objectForKey:@"time"];
+    
+    if ([self isMovieFavorited:movie withTime:time withDay:day]) {
+        [favButton setSelected:YES];
+    } else {
+        [favButton setSelected:NO];
+    }
+    
+    [favButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:favButton];
     
     return cell;
 }
+
+-(BOOL)isMovieFavorited:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    
+    /* checks if project is favorited */
+    for (int i = 0; i < [favoritesArray count]; i++) {
+        NSString *testMovieName = [[favoritesArray objectAtIndex:i] objectAtIndex:0];
+        NSString *testTime = [[favoritesArray objectAtIndex:i] objectAtIndex:1];
+        NSString *testDay = [[favoritesArray objectAtIndex:i] objectAtIndex:2];
+        
+        if ([movie isEqualToString:testMovieName]) {
+            if ([time isEqualToString:testTime]) {
+                if ([day isEqualToString:testDay]) {
+                    return YES;
+                }
+            }
+        }
+    }
+    
+    return NO;
+}
+
+/* removes the specified project from favorites */
+-(void)removeClickedMovie:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    
+    /* finds the project to remove */
+    for (int i = 0; i < [favoritesArray count]; i++) {
+        NSString *testMovieName = [[favoritesArray objectAtIndex:i] objectAtIndex:0];
+        NSString *testTime = [[favoritesArray objectAtIndex:i] objectAtIndex:1];
+        NSString *testDay = [[favoritesArray objectAtIndex:i] objectAtIndex:2];
+        
+        if ([movie isEqualToString:testMovieName]) {
+            if ([testTime isEqualToString:time]) {
+                if ([testDay isEqualToString:day]) {
+                    [favoritesArray removeObjectAtIndex:i];
+                    [[NSUserDefaults standardUserDefaults] setObject:favoritesArray forKey:@"favoritedMovies"];
+                    break;
+                }
+            }
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+/* adds the specified project to favorites */
+-(void)addClickedMovie:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    NSArray *comparativeFavoritesValues = [[NSArray alloc] initWithObjects:movie, time, day, nil];
+    [favoritesArray addObject:comparativeFavoritesValues];
+    [[NSUserDefaults standardUserDefaults] setObject:favoritesArray forKey:@"favoritedMovies"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+-(void)favoriteButtonClicked:(id)sender {
+    UIButton *btnClicked = (UIButton *)sender;
+    [btnClicked setSelected:![btnClicked isSelected]];
+    
+    int tagVal = btnClicked.tag - 1000;
+    
+    NSString *movie = [[_movies objectAtIndex:tagVal] objectForKey:@"movie"];
+    NSString *day = [[_movies objectAtIndex:tagVal] objectForKey:@"day"];
+    NSString *time = [[_movies objectAtIndex:tagVal] objectForKey:@"time"];
+    
+    if ([btnClicked isSelected]) {
+        [self addClickedMovie:movie withTime:time withDay:day];
+    } else {
+        [self removeClickedMovie:movie withTime:time withDay:day];
+    }
+}
+
 
 
 @end
