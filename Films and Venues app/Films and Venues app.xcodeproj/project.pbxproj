@@ -102,7 +102,6 @@
 		977F333E16FADCA7006DAE5B /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F333B16FADCA7006DAE5B /* SVModalWebViewController.m */; };
 		977F333F16FADCA7006DAE5B /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F333D16FADCA7006DAE5B /* SVWebViewController.m */; };
 		977F334116FAE710006DAE5B /* Movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 977F334016FAE710006DAE5B /* Movies.plist */; };
-		977F334416FAEDF7006DAE5B /* ADLivelyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */; };
 		977F334916FAEF0B006DAE5B /* ScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */; };
 		977F334E16FB014F006DAE5B /* Outdoor Screening_South Beach.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */; };
@@ -246,8 +245,6 @@
 		977F333C16FADCA7006DAE5B /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
 		977F333D16FADCA7006DAE5B /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
 		977F334016FAE710006DAE5B /* Movies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Movies.plist; sourceTree = "<group>"; };
-		977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADLivelyTableView.h; sourceTree = "<group>"; };
-		977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADLivelyTableView.m; sourceTree = "<group>"; };
 		977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
 		977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewController.xib; sourceTree = "<group>"; };
@@ -453,8 +450,6 @@
 			children = (
 				977F335216FB0772006DAE5B /* DMSlidingTableViewCell.h */,
 				977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */,
-				977F334216FAEDF7006DAE5B /* ADLivelyTableView.h */,
-				977F334316FAEDF7006DAE5B /* ADLivelyTableView.m */,
 				977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */,
 				977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */,
 				977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */,
@@ -695,7 +690,6 @@
 				9776209A16FA8E4900B9F5B1 /* OFXMLMapper.m in Sources */,
 				977F333E16FADCA7006DAE5B /* SVModalWebViewController.m in Sources */,
 				977F333F16FADCA7006DAE5B /* SVWebViewController.m in Sources */,
-				977F334416FAEDF7006DAE5B /* ADLivelyTableView.m in Sources */,
 				977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */,
 				977F335416FB0773006DAE5B /* DMSlidingTableViewCell.m in Sources */,
 				970CD05C1713A49000C50B1B /* UIImage+Alpha.m in Sources */,

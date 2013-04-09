@@ -7,7 +7,6 @@
 //
 
 #import "ScheduleTableViewController.h"
-#import "ADLivelyTableView.h"
 #import "DMSlidingTableViewCell.h"
 
 @interface ScheduleTableViewController () {
@@ -34,8 +33,26 @@
         path = [[NSBundle mainBundle] pathForResource:
                 @"Venues" ofType:@"plist"];
         
+        _splitMovieArray = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < 3; i++) {
+            NSMutableArray *holderArray = [[NSMutableArray alloc] init];
+            [_splitMovieArray addObject:holderArray];
+        }
+        
+        for (NSDictionary *dict in _movieArray) {
+            if ([[dict objectForKey:@"day"] isEqualToString: @"June 15"]) {
+                [[_splitMovieArray objectAtIndex:0] addObject:dict];
+            } else if ([[dict objectForKey:@"day"] isEqualToString: @"June 16"]) {
+                [[_splitMovieArray objectAtIndex:1] addObject:dict];
+            } else {
+                [[_splitMovieArray objectAtIndex:2] addObject:dict];
+            }
+        }
+        
         _venuesArray = [[NSArray alloc] initWithContentsOfFile:path]; 
     }
+    
     return self;
 }
 
@@ -43,12 +60,12 @@
 {
     [super viewDidLoad];
     
-    revealedCells= [[NSMutableIndexSet alloc] init];
-    
-    
-    ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
-//    livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
-        livelyTableView.initialCellTransformBlock = ADLivelyTransformHelix;
+//    revealedCells= [[NSMutableIndexSet alloc] init];
+//    
+//    
+//    ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
+////    livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
+//    livelyTableView.initialCellTransformBlock = nil;
     
     // Uncomment the following line to preserve selection between presentatio
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,62 +85,66 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 3;
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *date;
+    
+    if (section == 0) {
+        date = @"June 15";
+    } else if (section == 1) {
+        date = @"June 16";
+    } else if (section == 2) {
+        date = @"June 17";
+    }
+    
+    return date;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_movieArray count];
+    return [[_splitMovieArray objectAtIndex:section ] count];
 }
 
-- (void) resetCellsState {
-    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
-        [cell setBackgroundVisible:NO];
-    }];
-}
+//- (void) resetCellsState {
+//    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
+//        [cell setBackgroundVisible:NO];
+//    }];
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     DMSlidingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[DMSlidingTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.swipeDirection = DMSlidingTableViewCellSwipeBoth;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell = [[DMSlidingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    cell.eventHandler = ^(DMEventType eventType, BOOL backgroundRevealed, DMSlidingTableViewCellSwipe swipeDirection) {
-        if (eventType == DMEventTypeDidOccurr) {
-            if (backgroundRevealed)
-                NSLog(@"revealed");
-            else [revealedCells removeIndex:indexPath.row];
-        }
-    };
     
     for(UIView *eachView in [cell subviews])
         [eachView removeFromSuperview];
     
     NSMutableString *str = [[NSMutableString alloc] init];
     
-    NSString *time = [[_movieArray objectAtIndex:indexPath.row] objectForKey:@"time"];
-    NSString *date = [[_movieArray objectAtIndex:indexPath.row] objectForKey:@"day"];
+    NSString *time = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"time"];
     
-    int index = [[[_movieArray objectAtIndex:indexPath.row] objectForKey:@"venue"] intValue];
+    int index = [[[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"venue"] intValue];
     
     NSString *img_name = [[_venuesArray objectAtIndex:index] objectForKey:@"image_name"];
     
     UIImage *img = [UIImage imageNamed:img_name];
     
-    [str appendFormat:@"%@ -- %@", date, time];
+    [str appendFormat:@"%@", time];
     
     // Configure the cell...
     UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(90, 0, 220, 50)];
     [lbl1 setFont:[UIFont fontWithName:@"LTTetria Bold" size:18.0]];
     [lbl1 setTextColor:[UIColor blackColor]];
     [lbl1 setBackgroundColor:[UIColor clearColor]];
-    lbl1.text = [[_movieArray objectAtIndex:indexPath.row] objectForKey:@"movie"];
+    lbl1.text = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
     [cell addSubview:lbl1];
 
     
