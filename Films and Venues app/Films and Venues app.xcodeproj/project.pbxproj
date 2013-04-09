@@ -24,6 +24,12 @@
 		970CD0581713A33F00C50B1B /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD0531713A33F00C50B1B /* img2.png */; };
 		970CD0591713A33F00C50B1B /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD0541713A33F00C50B1B /* img1.png */; };
 		970CD05C1713A49000C50B1B /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CD05B1713A49000C50B1B /* UIImage+Alpha.m */; };
+		970CD0611713AF8500C50B1B /* bttn-favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD05D1713AF8500C50B1B /* bttn-favorites.png */; };
+		970CD0621713AF8500C50B1B /* bttn-favorites-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD05E1713AF8500C50B1B /* bttn-favorites-selected.png */; };
+		970CD0631713AF8500C50B1B /* bttn-favorites-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD05F1713AF8500C50B1B /* bttn-favorites-selected@2x.png */; };
+		970CD0641713AF8500C50B1B /* bttn-favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 970CD0601713AF8500C50B1B /* bttn-favorites@2x.png */; };
+		970CD0681713C69B00C50B1B /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 970CD0661713C69B00C50B1B /* FavoritesTableViewController.m */; };
+		970CD0691713C69B00C50B1B /* FavoritesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970CD0671713C69B00C50B1B /* FavoritesTableViewController.xib */; };
 		97209C5716FA6C3E003292C4 /* AdvisoryModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97209C5616FA6C3E003292C4 /* AdvisoryModalPanel.m */; };
 		97209C5C16FA6C8F003292C4 /* UAModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97209C5916FA6C8F003292C4 /* UAModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		97209C5D16FA6C8F003292C4 /* UATitledModalPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97209C5B16FA6C8F003292C4 /* UATitledModalPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -145,6 +151,13 @@
 		970CD0541713A33F00C50B1B /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		970CD05A1713A49000C50B1B /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		970CD05B1713A49000C50B1B /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		970CD05D1713AF8500C50B1B /* bttn-favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bttn-favorites.png"; sourceTree = "<group>"; };
+		970CD05E1713AF8500C50B1B /* bttn-favorites-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bttn-favorites-selected.png"; sourceTree = "<group>"; };
+		970CD05F1713AF8500C50B1B /* bttn-favorites-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bttn-favorites-selected@2x.png"; sourceTree = "<group>"; };
+		970CD0601713AF8500C50B1B /* bttn-favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bttn-favorites@2x.png"; sourceTree = "<group>"; };
+		970CD0651713C69B00C50B1B /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		970CD0661713C69B00C50B1B /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		970CD0671713C69B00C50B1B /* FavoritesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesTableViewController.xib; sourceTree = "<group>"; };
 		97209C5516FA6C3E003292C4 /* AdvisoryModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvisoryModalPanel.h; sourceTree = "<group>"; };
 		97209C5616FA6C3E003292C4 /* AdvisoryModalPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvisoryModalPanel.m; sourceTree = "<group>"; };
 		97209C5816FA6C8F003292C4 /* UAModalPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAModalPanel.h; sourceTree = "<group>"; };
@@ -335,6 +348,9 @@
 				972EC88B16FB948F00297EC8 /* Schedule */,
 				972F882116D31E040092E80D /* VenuesViewController.h */,
 				972F882216D31E040092E80D /* VenuesViewController.m */,
+				970CD0651713C69B00C50B1B /* FavoritesTableViewController.h */,
+				970CD0661713C69B00C50B1B /* FavoritesTableViewController.m */,
+				970CD0671713C69B00C50B1B /* FavoritesTableViewController.xib */,
 				972F882316D31E040092E80D /* VenuesViewController.xib */,
 				97D17C7716CED48D00D9D964 /* SponsersViewController.h */,
 				97D17C7816CED48D00D9D964 /* SponsersViewController.m */,
@@ -353,6 +369,10 @@
 		970B2EB016A5FCD100607337 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				970CD05D1713AF8500C50B1B /* bttn-favorites.png */,
+				970CD05E1713AF8500C50B1B /* bttn-favorites-selected.png */,
+				970CD05F1713AF8500C50B1B /* bttn-favorites-selected@2x.png */,
+				970CD0601713AF8500C50B1B /* bttn-favorites@2x.png */,
 				970CD05A1713A49000C50B1B /* UIImage+Alpha.h */,
 				970CD05B1713A49000C50B1B /* UIImage+Alpha.m */,
 				977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */,
@@ -655,6 +675,11 @@
 				970CD0571713A33F00C50B1B /* img3.png in Resources */,
 				970CD0581713A33F00C50B1B /* img2.png in Resources */,
 				970CD0591713A33F00C50B1B /* img1.png in Resources */,
+				970CD0611713AF8500C50B1B /* bttn-favorites.png in Resources */,
+				970CD0621713AF8500C50B1B /* bttn-favorites-selected.png in Resources */,
+				970CD0631713AF8500C50B1B /* bttn-favorites-selected@2x.png in Resources */,
+				970CD0641713AF8500C50B1B /* bttn-favorites@2x.png in Resources */,
+				970CD0691713C69B00C50B1B /* FavoritesTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +718,7 @@
 				977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */,
 				977F335416FB0773006DAE5B /* DMSlidingTableViewCell.m in Sources */,
 				970CD05C1713A49000C50B1B /* UIImage+Alpha.m in Sources */,
+				970CD0681713C69B00C50B1B /* FavoritesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

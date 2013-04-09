@@ -53,7 +53,7 @@
         defaultBackgroundView.backgroundColor = [UIColor darkGrayColor];
         self.backgroundView = defaultBackgroundView;
         
-        self.swipeDirection = DMSlidingTableViewCellSwipeRight;
+        self.swipeDirection = DMSlidingTableViewCellSwipeLeft;
     }
     return self;
 }

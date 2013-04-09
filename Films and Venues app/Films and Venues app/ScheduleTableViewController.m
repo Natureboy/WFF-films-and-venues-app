@@ -159,7 +159,104 @@
     imageView.frame = CGRectMake(10, 10, 60, 60);
     [cell addSubview:imageView];
     
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 25, 50, 30)];
+    
+    [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
+    [favButton setImage:[UIImage imageNamed:@"bttn-favorites"] forState:UIControlStateNormal];
+    
+    NSString *movie = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
+    NSString *day = [[[_splitMovieArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"day"];
+    
+    if ([self isMovieFavorited:movie withTime:time withDay:day]) {
+        [favButton setSelected:YES];
+    } else {
+        [favButton setSelected:NO];
+   }
+    
+    [favButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:favButton];
+    
     return cell;
+}
+
+-(BOOL)isMovieFavorited:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    
+    /* checks if project is favorited */
+    for (int i = 0; i < [favoritesArray count]; i++) {
+        NSString *testMovieName = [[favoritesArray objectAtIndex:i] objectAtIndex:0];
+        NSString *testTime = [[favoritesArray objectAtIndex:i] objectAtIndex:1];
+        NSString *testDay = [[favoritesArray objectAtIndex:i] objectAtIndex:2];
+        
+        if ([movie isEqualToString:testMovieName]) {
+            if ([time isEqualToString:testTime]) {
+                if ([day isEqualToString:testDay]) {
+                    return YES;
+                }
+            }
+        }
+    }
+    
+    return NO;
+}
+
+/* removes the specified project from favorites */
+-(void)removeClickedMovie:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    
+    /* finds the project to remove */
+    for (int i = 0; i < [favoritesArray count]; i++) {
+        NSString *testMovieName = [[favoritesArray objectAtIndex:i] objectAtIndex:0];
+        NSString *testTime = [[favoritesArray objectAtIndex:i] objectAtIndex:1];
+        NSString *testDay = [[favoritesArray objectAtIndex:i] objectAtIndex:2];
+        
+        if ([movie isEqualToString:testMovieName]) {
+            if ([testTime isEqualToString:time]) {
+                if ([testDay isEqualToString:day]) {
+                    [favoritesArray removeObjectAtIndex:i];
+                    [[NSUserDefaults standardUserDefaults] setObject:favoritesArray forKey:@"favoritedMovies"];
+                    break;
+                }
+            }
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+/* adds the specified project to favorites */
+-(void)addClickedMovie:(NSString *)movie withTime:(NSString *)time withDay:(NSString *)day {
+    NSMutableArray *favoritesArray = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"favoritedMovies"]];
+    NSArray *comparativeFavoritesValues = [[NSArray alloc] initWithObjects:movie, time, day, nil];
+    [favoritesArray addObject:comparativeFavoritesValues];
+    [[NSUserDefaults standardUserDefaults] setObject:favoritesArray forKey:@"favoritedMovies"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+-(void)favoriteButtonClicked:(id)sender {
+    UIButton *btnClicked = (UIButton *)sender;
+    [btnClicked setSelected:![btnClicked isSelected]];
+    
+    for (UIView *parent = [btnClicked superview]; parent != nil; parent = [parent superview]) {
+        if ([parent isKindOfClass: [UITableViewCell class]]) {
+            UITableViewCell *cell = (UITableViewCell *) parent;
+            NSIndexPath *path = [self.tableView indexPathForCell:cell];
+            
+            NSString *movie = [[[_splitMovieArray objectAtIndex:path.section] objectAtIndex:path.row] objectForKey:@"movie"];
+            NSString *time = [[[_splitMovieArray objectAtIndex:path.section] objectAtIndex:path.row] objectForKey:@"time"];
+            NSString *day = [[[_splitMovieArray objectAtIndex:path.section] objectAtIndex:path.row] objectForKey:@"day"];
+            
+            
+            if ([btnClicked isSelected]) {
+                [self addClickedMovie:movie withTime:time withDay:day];
+            } else {
+                [self removeClickedMovie:movie withTime:time withDay:day];
+            }
+            
+            break;
+        }
+    }
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -211,13 +308,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     ; *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end
