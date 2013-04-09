@@ -214,13 +214,16 @@
     self.controller.controlStyle = MPMovieControlStyleFullscreen;
     self.controller.delegate = self;
     //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
-    self.controller.view.frame = self.view.bounds;
+    
+    self.controller.view.frame = self.view.window.frame;
     //self.controller.view.center = self.view.center;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    [self.view addSubview:self.controller.view];
+    [self.view.window addSubview:self.controller.view];
     [self.controller play];
 
 }
+
+
 
 -(void)videoPlayBackDidFinish:(NSNotification*)notification  {
     

@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBYouTube.h"
 
-@interface FavoritesTableViewController : UITableViewController <UIWebViewDelegate>
+@interface FavoritesTableViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
+    LBYouTubePlayerController* controller;
+}
+
+@property (nonatomic, strong) LBYouTubePlayerController* controller;
 
 @property (strong,nonatomic) NSMutableArray *favoritesArray;
 @property (strong,nonatomic) NSMutableArray *favoritesSplitArray;
