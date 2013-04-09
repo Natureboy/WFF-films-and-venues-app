@@ -52,6 +52,7 @@
     svvc.venueDict= [_venuesArray objectAtIndex:indexPath.row];
     svvc.venueValue = indexPath.row;
     [self.navigationController pushViewController:svvc animated:YES];
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
