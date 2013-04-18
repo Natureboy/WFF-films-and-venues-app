@@ -12,6 +12,7 @@
 #import "ScheduleTableViewController.h"
 #import "UIImage+Alpha.h"
 #import "FavoritesTableViewController.h"
+#import "MFSideMenu.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
 #define NUMBER_OF_SPONSERS 10
@@ -32,19 +33,91 @@
     if (self) {
         self.title = NSLocalizedString(@"Home", @"Home");
         self.tabBarItem.image = [UIImage imageNamed:@"home_icon"];
+        
+        _reviewer = [[NSMutableArray alloc] init];
+        _reviewInfo = [[NSMutableArray alloc] init];
+        
+        [_reviewInfo addObject:@"\"Ranked in the Top 5 Film Festivals!\""];
+        [_reviewInfo addObject:@"\"One of the most refreshingly-laid back film events in the country.\""];
+        [_reviewInfo addObject:@"\"An absolutely fun-filled weekend! The passion behind the festival is amazing!\""];
+        
+        [_reviewer addObject:@"-Sag Indie"];
+        [_reviewer addObject:@"-DFP"];
+        [_reviewer addObject:@"-Sean Elliott"];        
+        
+        _arrVal = 0;
+        
+        _origRect = _textView.frame;
+        _origRectLabel = _label.frame;
     }
     return self;
 }
 
+- (void)setupMenuBarButtonItems {
+    switch (self.navigationController.sideMenu.menuState) {
+        case MFSideMenuStateClosed:
+            if([[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
+                self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+            } else {
+                self.navigationItem.leftBarButtonItem = [self backBarButtonItem];
+            }
+            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+            break;
+        case MFSideMenuStateLeftMenuOpen:
+            self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+            break;
+        case MFSideMenuStateRightMenuOpen:
+            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+            break;
+    }
+}
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+    return [[UIBarButtonItem alloc]
+            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
+            target:self.navigationController.sideMenu
+            action:@selector(toggleLeftSideMenu)];
+}
+
+- (UIBarButtonItem *)rightMenuBarButtonItem {
+//    return [[UIBarButtonItem alloc]
+//            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
+//            target:self.navigationController.sideMenu
+//            action:@selector(toggleRightSideMenu)];
+    return nil;
+}
+
+- (UIBarButtonItem *)backBarButtonItem {
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
+                                            style:UIBarButtonItemStyleBordered
+                                           target:self
+                                           action:@selector(backButtonPressed:)];
+}
+
+- (void)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//- (IBAction)pushAnotherPressed:(id)sender {
+//    HomeViewController *demoController = [[HomeViewController alloc]
+//                                          initWithNibName:@"DemoViewController"
+//                                          bundle:nil];
+//    
+//    [self.navigationController pushViewController:demoController animated:YES];
+//}
+
+
 - (void)viewDidLoad
 {
+    
+    [self setupMenuBarButtonItems];
+    
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
     
-    UIImage *image = [UIImage imageNamed:@"wff-navBar"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    [self.navigationController.navigationBar.topItem setTitleView:imageView];
+//    UIImage *image = [UIImage imageNamed:@"wff-navBar"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//    [self.navigationController.navigationBar.topItem setTitleView:imageView];
     
     _items = [NSMutableArray array];
     for (int i = 0; i < NUMBER_OF_SPONSERS; i++)
@@ -72,7 +145,7 @@
     
     _venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_test"]]];
     
     // Path to the plist (in the application bundle)
     NSString *path = [[NSBundle mainBundle] pathForResource:
@@ -222,6 +295,7 @@
                                                   selector:@selector(scrollStep)
                                                   userInfo:nil
                                                    repeats:YES];
+    
 }
 
 - (void)stopScrolling
@@ -236,6 +310,34 @@
     NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
     float delta = _lastTime - now;
     _lastTime = now;
+    
+    _incVal += 1;
+    
+    if (_incVal == 100) {
+        _incVal = 0;
+//        [UIView animateWithDuration:0.25 animations:^{_textView.alpha = 0.0;}];
+//        [UIView animateWithDuration:0.25 animations:^{_textView.alpha = 1.0;}];
+        [UIView animateWithDuration:1.0 animations:^{_textView.alpha = 0.0; _label.alpha = 0.0;} completion:^(BOOL tr)
+         {
+             _arrVal++;
+             
+             if (_arrVal == 3) _arrVal = 0;
+             
+             
+             _textView.text = [_reviewInfo objectAtIndex:_arrVal]; _label.text = [_reviewer objectAtIndex:_arrVal];
+             if (_arrVal == 0) {
+                 _textView.transform = CGAffineTransformMakeTranslation(0,5);
+                 _label.transform =CGAffineTransformMakeTranslation(0,0);
+             } else if (_arrVal == 1) {
+                  _textView.transform = CGAffineTransformMakeTranslation(-5, -30);
+                  _label.transform = CGAffineTransformMakeTranslation(40, 27);
+             } else {
+                 _textView.transform = CGAffineTransformMakeTranslation(0, -20);
+                  _label.transform = CGAffineTransformMakeTranslation(-10, 40);
+             }
+             
+             [UIView animateWithDuration:1.0 animations:^{_textView.alpha = 1.0; _label.alpha = 1.0;}];}];
+    }
     
     //don't autoscroll when user is manipulating carousel
     if (!_carousel.dragging && !_carousel.decelerating)

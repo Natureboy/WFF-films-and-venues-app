@@ -40,6 +40,18 @@
 
 @property (nonatomic) int val;
 
+@property (strong,nonatomic) IBOutlet UITextView *textView;
+@property (strong,nonatomic) IBOutlet UILabel *label;
+
+@property (nonatomic) int incVal;
+@property (nonatomic) int arrVal;
+
+@property (nonatomic) NSMutableArray *reviewInfo;
+@property (nonatomic) NSMutableArray *reviewer;
+
+@property (nonatomic) CGRect origRect;
+@property (nonatomic) CGRect origRectLabel;
+
 -(IBAction)btnClicked:(id)sender;
 
 @end
