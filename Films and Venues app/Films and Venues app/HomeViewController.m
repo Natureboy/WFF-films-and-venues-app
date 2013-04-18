@@ -329,7 +329,7 @@
                  _textView.transform = CGAffineTransformMakeTranslation(0,5);
                  _label.transform =CGAffineTransformMakeTranslation(0,0);
              } else if (_arrVal == 1) {
-                  _textView.transform = CGAffineTransformMakeTranslation(-5, -30);
+                  _textView.transform = CGAffineTransformMakeTranslation(-15, -30);
                   _label.transform = CGAffineTransformMakeTranslation(40, 27);
              } else {
                  _textView.transform = CGAffineTransformMakeTranslation(0, -20);

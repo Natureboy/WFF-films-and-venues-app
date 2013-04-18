@@ -13,5 +13,5 @@
 
 @property (strong,nonatomic) NSMutableArray *tableElements;
 @property (strong,nonatomic) NSMutableArray *tableImages;
-
+@property (strong,nonatomic) NSMutableArray *viewControllers;
 @end

@@ -17,6 +17,8 @@
 		3B111C5F171FB05E00670CA4 /* KeeponTruckin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C5E171FB05E00670CA4 /* KeeponTruckin.ttf */; };
 		3B111C72171FB78B00670CA4 /* background_test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C70171FB78B00670CA4 /* background_test@2x.png */; };
 		3B111C73171FB78B00670CA4 /* background_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C71171FB78B00670CA4 /* background_test.png */; };
+		3B111C76171FD09A00670CA4 /* pinterest_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C74171FD09A00670CA4 /* pinterest_icon.png */; };
+		3B111C77171FD09A00670CA4 /* pinterest_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */; };
 		970993D316FA5A9D0026A8A5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 970993D116FA5A9D0026A8A5 /* AboutViewController.m */; };
 		970993D416FA5A9D0026A8A5 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970993D216FA5A9D0026A8A5 /* AboutViewController.xib */; };
 		970B2EAA16A5FCD100607337 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970B2EA916A5FCD100607337 /* UIKit.framework */; };
@@ -166,6 +168,8 @@
 		3B111C5E171FB05E00670CA4 /* KeeponTruckin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KeeponTruckin.ttf; sourceTree = "<group>"; };
 		3B111C70171FB78B00670CA4 /* background_test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_test@2x.png"; sourceTree = "<group>"; };
 		3B111C71171FB78B00670CA4 /* background_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_test.png; sourceTree = "<group>"; };
+		3B111C74171FD09A00670CA4 /* pinterest_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinterest_icon.png; sourceTree = "<group>"; };
+		3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinterest_icon@2x.png"; sourceTree = "<group>"; };
 		970993D016FA5A9D0026A8A5 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		970993D116FA5A9D0026A8A5 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		970993D216FA5A9D0026A8A5 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				3B111C4B171FAA5200670CA4 /* menu-icon@2x.png */,
 				3B111C70171FB78B00670CA4 /* background_test@2x.png */,
 				3B111C71171FB78B00670CA4 /* background_test.png */,
+				3B111C74171FD09A00670CA4 /* pinterest_icon.png */,
+				3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */,
 				970CD0741713D3CB00C50B1B /* MediaPlayer.framework */,
 				977620B216FAB40500B9F5B1 /* CoreLocation.framework */,
 				977620B016FAAEDF00B9F5B1 /* MapKit.framework */,
@@ -798,6 +804,8 @@
 				3B111C5F171FB05E00670CA4 /* KeeponTruckin.ttf in Resources */,
 				3B111C72171FB78B00670CA4 /* background_test@2x.png in Resources */,
 				3B111C73171FB78B00670CA4 /* background_test.png in Resources */,
+				3B111C76171FD09A00670CA4 /* pinterest_icon.png in Resources */,
+				3B111C77171FD09A00670CA4 /* pinterest_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
