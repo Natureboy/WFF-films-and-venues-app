@@ -242,7 +242,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-	UIButton *button = (UIButton *)view;
+	UIImageView *imgView = (UIImageView *)view;
 //	if (button == nil)
 //	{
 //		//no button available to recycle, so create new one
@@ -271,12 +271,15 @@
     
     UIImage *image = [[_carouselImages objectAtIndex:index] transparentBorderImage:1];
     
-    button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    imgView = [[UIImageView alloc] init];
+    imgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    [imgView setImage:image];
+//    button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+//    [button setBackgroundImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
-	return button;
+	return imgView;
 }
 
 #pragma mark -

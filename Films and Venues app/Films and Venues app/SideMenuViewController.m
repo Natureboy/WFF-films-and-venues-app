@@ -141,7 +141,6 @@
              ];
          
     }
-        [self.sideMenu setMenuState:MFSideMenuStateClosed];
         return;
     }
     
@@ -160,24 +159,24 @@
     }
     
     if (indexPath.section == 2 && indexPath.row == 1 ) {
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/waterfrontfilm"]];
-        } else {
+//        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/waterfrontfilm"]];
+//        } else {
             NSString *url = @"https://facebook.com/waterfrontfilm";
             _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
             [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
-        }
+//        }
         return;
     }
     
     if (indexPath.section == 2 && indexPath.row == 2) {
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=waterfrontfilm"]];
-        } else {
+//        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]){
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=waterfrontfilm"]];
+//        } else {
             NSString *url = @"https://twitter.com/WaterfrontFilm";
             _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
             [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
-        }
+//        }
         return;
     }
     
