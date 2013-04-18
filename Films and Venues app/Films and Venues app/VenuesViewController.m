@@ -118,14 +118,31 @@
     NSDictionary *dict = [_venuesArray objectAtIndex:indexPath.row];
     
     UIImage *img = [UIImage imageNamed:[dict objectForKey:@"image_name"]];
-    cell.imageView.image = img;
+//    cell.imageView.image = img;
     
-    cell.textLabel.font = [UIFont fontWithName:@"LTTetria Light" size:18];
-    cell.textLabel.text = [dict objectForKey:@"name"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
+    [imgView setImage:img];
+    [cell addSubview:imgView];
+    
+//    cell.textLabel.frame = CGRectMake(90, 0, 180, 50);
+//    cell.textLabel.font = [UIFont fontWithName:@"LTTetria Light" size:18];
+//    cell.textLabel.text = [dict objectForKey:@"name"];
+    
+    UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(90, 20, 180, 50)];
+    [lbl1 setFont:[UIFont fontWithName:@"LTTetria Bold" size:18.0]];
+    [lbl1 setTextColor:[UIColor blackColor]];
+    [lbl1 setBackgroundColor:[UIColor clearColor]];
+    lbl1.text = [dict objectForKey:@"name"];
+    [cell addSubview:lbl1];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

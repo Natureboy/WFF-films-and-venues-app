@@ -12,7 +12,7 @@
 #import "SVModalWebViewController.h"
 #import "SVWebViewController.h"
 
-#define kAllPinsLoaded @"kAllPinsLoaded"
+//#define kAllPinsLoaded @"kAllPinsLoaded"
 
 @interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, UIWebViewDelegate, UINavigationControllerDelegate>
 

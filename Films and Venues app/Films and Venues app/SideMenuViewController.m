@@ -11,20 +11,36 @@
 #import "ScheduleTableViewController.h"
 #import "FavoritesTableViewController.h"
 #import "PhotoViewController.h"
+#import <MapKit/MapKit.h>
+#import "SponsorsViewController.h"
 
 @implementation SideMenuViewController
 
 @synthesize sideMenu;
 
+-(void)allPinsLoaded {
+    _val = 0;
+    [MKMapItem openMapsWithItems:_holderArray launchOptions:nil];
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    // Path to the plist (in the application bundle)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Venues" ofType:@"plist"];
+    
+    // Build the array from the plist
+    _venuesArray = [[NSArray alloc] initWithContentsOfFile:path];
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
 //    CGRect searchBarFrame = CGRectMake(0, 0, self.tableView.frame.size.width, 45.0);
 //    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:searchBarFrame];
 //    searchBar.delegate = self;
 //    self.tableView.tableHeaderView = searchBar;
     
-    _tableElements = [[NSMutableArray alloc] initWithArray:@[@[@"Home"], @[@"Schedule", @"Venues", @"Directions", @"Favorites", @"Photos", @"Tickets"], @[@"Facebook", @"Twitter", @"Pinterest"]]];
-    _tableImages = [[NSMutableArray alloc] initWithArray:@[@[[UIImage imageNamed:@"home_icon"]], @[[UIImage imageNamed:@"schedule_icon"], [UIImage imageNamed:@"venues_icon"], [UIImage imageNamed:@"directions_icon"], [UIImage imageNamed:@"favorites_icon"], [UIImage imageNamed:@"photos_icon"], [UIImage imageNamed:@"tickets_icon"]], @[[UIImage imageNamed:@"facebook_icon"], [UIImage imageNamed:@"twitter_icon"], [UIImage imageNamed:@"pinterest_icon"]]]];
+    _tableElements = [[NSMutableArray alloc] initWithArray:@[@[@"Home"], @[@"Schedule", @"Venues", @"Directions", @"Favorites", @"Photos", @"Tickets", @"Sponsers"], @[@"Website", @"Facebook", @"Twitter", @"Pinterest"]]];
+    _tableImages = [[NSMutableArray alloc] initWithArray:@[@[[UIImage imageNamed:@"home_icon"]], @[[UIImage imageNamed:@"schedule_icon"], [UIImage imageNamed:@"venues_icon"], [UIImage imageNamed:@"directions_icon"], [UIImage imageNamed:@"favorites_icon"], [UIImage imageNamed:@"photos_icon"], [UIImage imageNamed:@"tickets_icon"], [UIImage imageNamed:@"sponsers_icon"]], @[[UIImage imageNamed:@"website_icon"], [UIImage imageNamed:@"facebook_icon"], [UIImage imageNamed:@"twitter_icon"], [UIImage imageNamed:@"pinterest_icon"]]]];
 }
 
 - (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
@@ -78,13 +94,89 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        _holderArray = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [_venuesArray count]; i++) {
+            
+            NSString *location = [[_venuesArray objectAtIndex:i] objectForKey:@"address"];
+            
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            [geocoder geocodeAddressString:location
+                         completionHandler:^(NSArray* placemarks, NSError* error){
+                             if (placemarks && placemarks.count > 0) {
+                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                                 [mapItem setName:[[_venuesArray objectAtIndex:i] objectForKey:@"name"]];
+                                 
+                                 [_holderArray addObject:mapItem];
+                                 _val++;
+                                 
+                                 if (_val == [_venuesArray count]) {
+                                     [[NSNotificationCenter defaultCenter] postNotificationName:kAllPinsLoaded object:nil];
+                                 }
+                             }
+                         }
+             ];
+         
+    }
+        [self.sideMenu setMenuState:MFSideMenuStateClosed];
+        return;
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 5 ) {
+        SVModalWebViewController *modalWebView = [[SVModalWebViewController alloc] initWithAddress:@"http://www.waterfrontfilm.org/wordpress/?product_cat=tickets"];
+        //[self.sideMenu setMenuState:MFSideMenuStateClosed];
+        [self.sideMenu.navigationController presentViewController:modalWebView animated:YES completion:nil];
+        return;
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        NSString *url = @"http://www.waterfrontfilm.org";
+        _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+        [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
+        return;
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 1 ) {
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/waterfrontfilm"]];
+        } else {
+            NSString *url = @"https://facebook.com/waterfrontfilm";
+            _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+            [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
+        }
+        return;
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 2) {
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=waterfrontfilm"]];
+        } else {
+            NSString *url = @"https://twitter.com/WaterfrontFilm";
+            _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+            [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
+        }
+        return;
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 3) {
+        NSString *url = @"http://www.pinterest.com/waterfrontfilm";
+        _svmController = [[SVModalWebViewController alloc] initWithAddress:url];
+        [self.sideMenu.navigationController presentViewController:_svmController animated:YES completion:nil];
+        return;
+    }
+    
     HomeViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     ScheduleTableViewController *scheduleViewController = [[ScheduleTableViewController alloc] initWithNibName:@"ScheduleTableViewController" bundle:nil];
     VenuesViewController *venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
     FavoritesTableViewController *favoritesTableViewController = [[FavoritesTableViewController alloc] initWithNibName:@"FavoritesTableViewController" bundle:nil];
     PhotoViewController *photoViewController = [[PhotoViewController                                                 alloc] initWithNibName:@"PhotoViewController" bundle:nil];
+    SponsorsViewController *sponsorsViewController = [[SponsorsViewController alloc] initWithNibName:@"SponsorsViewController" bundle:nil];
     
-    _viewControllers = [[NSMutableArray alloc] initWithArray:@[homeViewController, scheduleViewController, venuesViewController, favoritesTableViewController, photoViewController]];
+    _viewControllers = [[NSMutableArray alloc] initWithArray:@[homeViewController, scheduleViewController, venuesViewController, favoritesTableViewController, photoViewController, sponsorsViewController]];
     
     int accessValue = -1;
     
@@ -103,6 +195,9 @@
                 break;
             case 4:
                 accessValue = 4;
+                break;
+            case 6:
+                accessValue = 5;
                 break;
             default:
                 break; 

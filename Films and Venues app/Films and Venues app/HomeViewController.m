@@ -113,8 +113,8 @@
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
-    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
+//    
 //    UIImage *image = [UIImage imageNamed:@"wff-navBar"];
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 //    [self.navigationController.navigationBar.topItem setTitleView:imageView];
@@ -179,31 +179,31 @@
         [self.navigationController pushViewController:_venuesViewController animated:YES];
     } else if (sender == _directionsButton) {
         
-        _holderArray = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < [_venuesArray count]; i++) {
-            
-            NSString *location = [[_venuesArray objectAtIndex:i] objectForKey:@"address"];
-            
-            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-            [geocoder geocodeAddressString:location
-                         completionHandler:^(NSArray* placemarks, NSError* error){
-                             if (placemarks && placemarks.count > 0) {
-                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
-                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-                                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-                                 [mapItem setName:[[_venuesArray objectAtIndex:i] objectForKey:@"name"]];
-                                 
-                                 [_holderArray addObject:mapItem];
-                                 _val++;
-                                 
-                                 if (_val == [_venuesArray count]) {
-                                     [[NSNotificationCenter defaultCenter] postNotificationName:kAllPinsLoaded object:nil];
-                                 }
-                             }
-                         }
-             ];
-        }
+//        _holderArray = [[NSMutableArray alloc] init];
+//        
+//        for (int i = 0; i < [_venuesArray count]; i++) {
+//            
+//            NSString *location = [[_venuesArray objectAtIndex:i] objectForKey:@"address"];
+//            
+//            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//            [geocoder geocodeAddressString:location
+//                         completionHandler:^(NSArray* placemarks, NSError* error){
+//                             if (placemarks && placemarks.count > 0) {
+//                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
+//                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+//                                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+//                                 [mapItem setName:[[_venuesArray objectAtIndex:i] objectForKey:@"name"]];
+//                                 
+//                                 [_holderArray addObject:mapItem];
+//                                 _val++;
+//                                 
+//                                 if (_val == [_venuesArray count]) {
+//                                     [[NSNotificationCenter defaultCenter] postNotificationName:kAllPinsLoaded object:nil];
+//                                 }
+//                             }
+//                         }
+//             ];
+//        }
         
     } else if (sender == _playingButton) {
         
