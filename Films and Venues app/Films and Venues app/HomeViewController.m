@@ -15,7 +15,7 @@
 #import "MFSideMenu.h"
 
 #define SCROLL_SPEED .15 //items per second, can be negative or fractional
-#define NUMBER_OF_SPONSERS 10
+#define NUMBER_OF_SPONSERS 5
 
 @interface HomeViewController ()
 
@@ -49,6 +49,9 @@
         
         _origRect = _textView.frame;
         _origRectLabel = _label.frame;
+        
+        _carouselImages = [[NSMutableArray alloc] initWithArray:@[[UIImage imageNamed:@"img1"], [UIImage imageNamed:@"img2"], [UIImage imageNamed:@"img3"], [UIImage imageNamed:@"img4"], [UIImage imageNamed:@"img5"]]];
+        
     }
     return self;
 }
@@ -112,6 +115,15 @@
     [self setupMenuBarButtonItems];
     
     [super viewDidLoad];
+    
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (screenSize.height > 480.0f) {
+            _textView.frame = CGRectMake(_textView.frame.origin.x, _textView.frame.origin.y + 50, _textView.frame.size.width, _textView.frame.size.height);
+            _label.frame = CGRectMake(_label.frame.origin.x, _label.frame.origin.y + 50, _label.frame.size.width, _label.frame.size.height);
+        }
+    }
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
 //    
@@ -231,29 +243,38 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
 	UIButton *button = (UIButton *)view;
-	if (button == nil)
-	{
-		//no button available to recycle, so create new one
-        NSString *imageName;
-        
-        NSLog(@"index = %d", index);
-        
-        if (index < 5) {
-            imageName  = [NSString stringWithFormat:@"img%d.png", index + 1];
-        } else if (index == 8) {
-            imageName  = @"img4.png";
-        } else if (index == 9) {
-            imageName  = @"img5.png";
-        }
-        
-		UIImage *image = [[UIImage imageNamed:imageName] transparentBorderImage:1];
-        
-        
-		button = [UIButton buttonWithType:UIButtonTypeCustom];
-		button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-		[button setBackgroundImage:image forState:UIControlStateNormal];
-		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-	}
+//	if (button == nil)
+//	{
+//		//no button available to recycle, so create new one
+//        NSString *imageName;
+//        
+//        NSLog(@"index = %d", index);
+//        
+//        if (index < 5) {
+//            imageName  = [NSString stringWithFormat:@"img%d.png", index + 1];
+//        } else if (index == 8) {
+//            imageName  = @"img4.png";
+//        } else if (index == 9) {
+//            imageName  = @"img5.png";
+//        }
+//        
+//		UIImage *image = [[UIImage imageNamed:imageName] transparentBorderImage:1];
+//        
+//        
+//		button = [UIButton buttonWithType:UIButtonTypeCustom];
+//		button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+//		[button setBackgroundImage:image forState:UIControlStateNormal];
+//		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+//	} else {
+//        NSLog(@"not nil");
+//    }
+    
+    UIImage *image = [[_carouselImages objectAtIndex:index] transparentBorderImage:1];
+    
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
 	return button;
 }
@@ -329,7 +350,7 @@
                  _textView.transform = CGAffineTransformMakeTranslation(0,5);
                  _label.transform =CGAffineTransformMakeTranslation(0,0);
              } else if (_arrVal == 1) {
-                  _textView.transform = CGAffineTransformMakeTranslation(-15, -30);
+                  _textView.transform = CGAffineTransformMakeTranslation(-5, -26);
                   _label.transform = CGAffineTransformMakeTranslation(40, 27);
              } else {
                  _textView.transform = CGAffineTransformMakeTranslation(0, -20);

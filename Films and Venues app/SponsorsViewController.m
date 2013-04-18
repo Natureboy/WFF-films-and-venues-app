@@ -81,7 +81,7 @@
 {
     [super viewDidLoad];
     
-    [_titleLabel setFont:[UIFont fontWithName:@"LTTetria Bold" size:18]];
+    [_titleLabel setFont:[UIFont fontWithName:@"LTTetria Bold" size:24]];
     
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
     

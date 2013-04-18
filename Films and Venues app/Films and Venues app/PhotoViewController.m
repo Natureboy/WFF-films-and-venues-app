@@ -71,7 +71,7 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"Photos", @"Photos");
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_test"]]];
         
         _flickrContext = [[OFFlickrAPIContext alloc] initWithAPIKey:OBJECTIVE_FLICKR_SAMPLE_API_KEY sharedSecret:OBJECTIVE_FLICKR_SAMPLE_API_SHARED_SECRET];
         _flickrRequest = [[OFFlickrAPIRequest alloc] initWithAPIContext:_flickrContext];

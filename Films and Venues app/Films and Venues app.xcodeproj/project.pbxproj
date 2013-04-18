@@ -19,6 +19,14 @@
 		3B111C73171FB78B00670CA4 /* background_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C71171FB78B00670CA4 /* background_test.png */; };
 		3B111C76171FD09A00670CA4 /* pinterest_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C74171FD09A00670CA4 /* pinterest_icon.png */; };
 		3B111C77171FD09A00670CA4 /* pinterest_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */; };
+		3B111C79171FEAA200670CA4 /* Outdoor Screening_South Beach.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C78171FEAA200670CA4 /* Outdoor Screening_South Beach.png */; };
+		3B111C7C171FEAD800670CA4 /* Street_Center_200_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C7A171FEAD800670CA4 /* Street_Center_200_west.png */; };
+		3B111C7D171FEAD800670CA4 /* Listiak_Auditorium.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C7B171FEAD800670CA4 /* Listiak_Auditorium.png */; };
+		3B111C8D171FF99B00670CA4 /* NEA.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C8A171FF99B00670CA4 /* NEA.png */; };
+		3B111C8E171FF99B00670CA4 /* FOX17.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C8B171FF99B00670CA4 /* FOX17.png */; };
+		3B111C8F171FF99B00670CA4 /* MCACA.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C8C171FF99B00670CA4 /* MCACA.png */; };
+		3B111C91171FFF8300670CA4 /* wff-navBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C90171FFF8200670CA4 /* wff-navBar@2x.png */; };
+		3B111C93172000F700670CA4 /* section-head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B111C92172000F700670CA4 /* section-head@2x.png */; };
 		970993D316FA5A9D0026A8A5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 970993D116FA5A9D0026A8A5 /* AboutViewController.m */; };
 		970993D416FA5A9D0026A8A5 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 970993D216FA5A9D0026A8A5 /* AboutViewController.xib */; };
 		970B2EAA16A5FCD100607337 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970B2EA916A5FCD100607337 /* UIKit.framework */; };
@@ -129,10 +137,7 @@
 		977F334116FAE710006DAE5B /* Movies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 977F334016FAE710006DAE5B /* Movies.plist */; };
 		977F334816FAEF0B006DAE5B /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */; };
 		977F334916FAEF0B006DAE5B /* ScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */; };
-		977F334E16FB014F006DAE5B /* Outdoor Screening_South Beach.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */; };
 		977F334F16FB014F006DAE5B /* Foundry_Hall.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334B16FB014E006DAE5B /* Foundry_Hall.png */; };
-		977F335016FB014F006DAE5B /* Listiak_Auditorium.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */; };
-		977F335116FB014F006DAE5B /* Street_Center_200_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 977F334D16FB014F006DAE5B /* Street_Center_200_west.png */; };
 		977F335416FB0773006DAE5B /* DMSlidingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */; };
 		979CA6EA17147119002EFE92 /* SponsorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6E817147119002EFE92 /* SponsorsViewController.m */; };
 		979CA6EB17147119002EFE92 /* SponsorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979CA6E917147119002EFE92 /* SponsorsViewController.xib */; };
@@ -170,10 +175,18 @@
 		3B111C71171FB78B00670CA4 /* background_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_test.png; sourceTree = "<group>"; };
 		3B111C74171FD09A00670CA4 /* pinterest_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinterest_icon.png; sourceTree = "<group>"; };
 		3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinterest_icon@2x.png"; sourceTree = "<group>"; };
+		3B111C78171FEAA200670CA4 /* Outdoor Screening_South Beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdoor Screening_South Beach.png"; sourceTree = "<group>"; };
+		3B111C7A171FEAD800670CA4 /* Street_Center_200_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Street_Center_200_west.png; sourceTree = "<group>"; };
+		3B111C7B171FEAD800670CA4 /* Listiak_Auditorium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Listiak_Auditorium.png; sourceTree = "<group>"; };
+		3B111C8A171FF99B00670CA4 /* NEA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NEA.png; sourceTree = "<group>"; };
+		3B111C8B171FF99B00670CA4 /* FOX17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FOX17.png; sourceTree = "<group>"; };
+		3B111C8C171FF99B00670CA4 /* MCACA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCACA.png; sourceTree = "<group>"; };
+		3B111C90171FFF8200670CA4 /* wff-navBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wff-navBar@2x.png"; sourceTree = "<group>"; };
+		3B111C92172000F700670CA4 /* section-head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "section-head@2x.png"; sourceTree = "<group>"; };
 		970993D016FA5A9D0026A8A5 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		970993D116FA5A9D0026A8A5 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		970993D216FA5A9D0026A8A5 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		970B2EA516A5FCD100607337 /* Films and Venues app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films and Venues app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		970B2EA516A5FCD100607337 /* WFF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		970B2EA916A5FCD100607337 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		970B2EAB16A5FCD100607337 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		970B2EAD16A5FCD100607337 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -316,10 +329,7 @@
 		977F334516FAEF0B006DAE5B /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
 		977F334616FAEF0B006DAE5B /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		977F334716FAEF0B006DAE5B /* ScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewController.xib; sourceTree = "<group>"; };
-		977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdoor Screening_South Beach.png"; sourceTree = "<group>"; };
 		977F334B16FB014E006DAE5B /* Foundry_Hall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Foundry_Hall.png; sourceTree = "<group>"; };
-		977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Listiak_Auditorium.png; sourceTree = "<group>"; };
-		977F334D16FB014F006DAE5B /* Street_Center_200_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Street_Center_200_west.png; sourceTree = "<group>"; };
 		977F335216FB0772006DAE5B /* DMSlidingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSlidingTableViewCell.h; sourceTree = "<group>"; };
 		977F335316FB0773006DAE5B /* DMSlidingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSlidingTableViewCell.m; sourceTree = "<group>"; };
 		979CA6E717147119002EFE92 /* SponsorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorsViewController.h; sourceTree = "<group>"; };
@@ -399,6 +409,8 @@
 				3B111C71171FB78B00670CA4 /* background_test.png */,
 				3B111C74171FD09A00670CA4 /* pinterest_icon.png */,
 				3B111C75171FD09A00670CA4 /* pinterest_icon@2x.png */,
+				3B111C90171FFF8200670CA4 /* wff-navBar@2x.png */,
+				3B111C92172000F700670CA4 /* section-head@2x.png */,
 				970CD0741713D3CB00C50B1B /* MediaPlayer.framework */,
 				977620B216FAB40500B9F5B1 /* CoreLocation.framework */,
 				977620B016FAAEDF00B9F5B1 /* MapKit.framework */,
@@ -416,7 +428,7 @@
 		970B2EA616A5FCD100607337 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				970B2EA516A5FCD100607337 /* Films and Venues app.app */,
+				970B2EA516A5FCD100607337 /* WFF.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,6 +476,12 @@
 		970B2EB016A5FCD100607337 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B111C8A171FF99B00670CA4 /* NEA.png */,
+				3B111C8B171FF99B00670CA4 /* FOX17.png */,
+				3B111C8C171FF99B00670CA4 /* MCACA.png */,
+				3B111C7A171FEAD800670CA4 /* Street_Center_200_west.png */,
+				3B111C7B171FEAD800670CA4 /* Listiak_Auditorium.png */,
+				3B111C78171FEAA200670CA4 /* Outdoor Screening_South Beach.png */,
 				970CD07F171461EB00C50B1B /* BButton.h */,
 				970CD080171461EB00C50B1B /* BButton.m */,
 				970CD0761713D7F000C50B1B /* play-button@2x.png */,
@@ -481,10 +499,7 @@
 				970CD0601713AF8500C50B1B /* bttn-favorites@2x.png */,
 				970CD05A1713A49000C50B1B /* UIImage+Alpha.h */,
 				970CD05B1713A49000C50B1B /* UIImage+Alpha.m */,
-				977F334A16FB014E006DAE5B /* Outdoor Screening_South Beach.png */,
 				977F334B16FB014E006DAE5B /* Foundry_Hall.png */,
-				977F334C16FB014F006DAE5B /* Listiak_Auditorium.png */,
-				977F334D16FB014F006DAE5B /* Street_Center_200_west.png */,
 				977620A116FAA70700B9F5B1 /* Venues.plist */,
 				977F334016FAE710006DAE5B /* Movies.plist */,
 				9776205D16FA715800B9F5B1 /* TETRB___.TTF */,
@@ -673,7 +688,7 @@
 			);
 			name = "Films and Venues app";
 			productName = "Films and Venues app";
-			productReference = 970B2EA516A5FCD100607337 /* Films and Venues app.app */;
+			productReference = 970B2EA516A5FCD100607337 /* WFF.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -771,10 +786,7 @@
 				977620A216FAA70700B9F5B1 /* Venues.plist in Resources */,
 				977F334116FAE710006DAE5B /* Movies.plist in Resources */,
 				977F334916FAEF0B006DAE5B /* ScheduleTableViewController.xib in Resources */,
-				977F334E16FB014F006DAE5B /* Outdoor Screening_South Beach.png in Resources */,
 				977F334F16FB014F006DAE5B /* Foundry_Hall.png in Resources */,
-				977F335016FB014F006DAE5B /* Listiak_Auditorium.png in Resources */,
-				977F335116FB014F006DAE5B /* Street_Center_200_west.png in Resources */,
 				970CD0551713A33F00C50B1B /* img5.png in Resources */,
 				970CD0561713A33F00C50B1B /* img4.png in Resources */,
 				970CD0571713A33F00C50B1B /* img3.png in Resources */,
@@ -806,6 +818,14 @@
 				3B111C73171FB78B00670CA4 /* background_test.png in Resources */,
 				3B111C76171FD09A00670CA4 /* pinterest_icon.png in Resources */,
 				3B111C77171FD09A00670CA4 /* pinterest_icon@2x.png in Resources */,
+				3B111C79171FEAA200670CA4 /* Outdoor Screening_South Beach.png in Resources */,
+				3B111C7C171FEAD800670CA4 /* Street_Center_200_west.png in Resources */,
+				3B111C7D171FEAD800670CA4 /* Listiak_Auditorium.png in Resources */,
+				3B111C8D171FF99B00670CA4 /* NEA.png in Resources */,
+				3B111C8E171FF99B00670CA4 /* FOX17.png in Resources */,
+				3B111C8F171FF99B00670CA4 /* MCACA.png in Resources */,
+				3B111C91171FFF8300670CA4 /* wff-navBar@2x.png in Resources */,
+				3B111C93172000F700670CA4 /* section-head@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,7 +946,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Films and Venues app/Films and Venues app-Prefix.pch";
 				INFOPLIST_FILE = "Films and Venues app/Films and Venues app-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WFF;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -937,7 +957,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Films and Venues app/Films and Venues app-Prefix.pch";
 				INFOPLIST_FILE = "Films and Venues app/Films and Venues app-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WFF;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -61,6 +61,23 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        [imgView setImage:[UIImage imageNamed:@"section-head"]];
+        return imgView;
+    } else {
+        return nil;
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    	return 150;
+    
+    return 22;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [_tableElements count];
@@ -82,6 +99,7 @@
     
     cell.textLabel.text = [[_tableElements objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.imageView.image = [self imageWithImage:[[_tableImages objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]  convertToSize:CGSizeMake(35, 35)];
+    cell.textLabel.font = [UIFont fontWithName:@"LTTetria Bold" size:22.0];
     return cell;
 }
 
@@ -94,6 +112,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 1 && indexPath.row == 2) {
         _holderArray = [[NSMutableArray alloc] init];

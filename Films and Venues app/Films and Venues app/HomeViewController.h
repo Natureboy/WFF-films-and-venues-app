@@ -37,6 +37,7 @@
 @property (nonatomic,strong) NSArray *venuesArray;
 
 @property (nonatomic,strong) NSMutableArray *holderArray;
+@property (nonatomic,strong) NSMutableArray *carouselImages;
 
 @property (nonatomic) int val;
 
