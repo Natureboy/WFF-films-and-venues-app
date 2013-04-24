@@ -9,25 +9,20 @@
 #import "ScheduleTableViewController.h"
 #import "MFSideMenu.h"
 
-@interface ScheduleTableViewController () {
-    NSMutableIndexSet* revealedCells;
-}
+@interface ScheduleTableViewController ()
 
 @end
 
 @implementation ScheduleTableViewController
 
-
 -(void)viewDidAppear:(BOOL)animated {
     [self setupMenuBarButtonItems];
 }
+
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        //[self setupMenuBarButtonItems];
-        
         self.title = @"Schedule";
         
         // Path to the plist (in the application bundle)
@@ -59,7 +54,7 @@
         
         _venuesArray = [[NSArray alloc] initWithContentsOfFile:path];
         
-        
+        /* sets up info needed for trailers -- should really be a plist */
         _trailers = [[NSMutableArray alloc] init];
         NSArray *movieNames = @[@"Wild Horse, Wild Ride", @"It's in the Blood", @"Cinema Six", @"Five Time Chamption", @"Shouting Secrets"];
         NSArray *trailerURL = @[@"http://www.youtube.com/watch?v=iPeW_cLC04k&feature=player_embedded", @"http://www.youtube.com/watch?v=ZSg_WtRTRjU&feature=player_embedded", @"http://www.youtube.com/watch?v=4SIASWxfwWc&feature=player_embedded", @"http://www.youtube.com/watch?v=Tty2h_OYEVA&feature=player_embedded", @"http://www.youtube.com/watch?v=-G3Yu0O5o7Q&feature=player_embedded"];
@@ -76,19 +71,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    revealedCells= [[NSMutableIndexSet alloc] init];
-//    
-//    
-//    ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
-////    livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
-//    livelyTableView.initialCellTransformBlock = nil;
-    
-    // Uncomment the following line to preserve selection between presentatio
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,8 +83,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 3;
+    // Return the number of sections. (number of days in the event)
+    return [_splitMovieArray count];
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -125,13 +107,6 @@
     // Return the number of rows in the section.
     return [[_splitMovieArray objectAtIndex:section ] count];
 }
-
-//- (void) resetCellsState {
-//    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-//        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
-//        [cell setBackgroundVisible:NO];
-//    }];
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -181,7 +156,7 @@
     for (int i = 0; i < [_trailers count]; i++) {
         NSDictionary *dict = [_trailers objectAtIndex:i];
         if ([movie isEqualToString:[dict objectForKey:@"movie"]]) {
-            UIButton *playButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
+            UIButton *playButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 35, 35)];
             playButton.tag = i + 100;
             [playButton addTarget:self action:@selector(playTrailer:) forControlEvents:UIControlEventTouchUpInside];
             [playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
@@ -190,7 +165,7 @@
         }
     }
     
-    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 25, 50, 30)];
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(275, 25, 40, 40)];
     
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites"] forState:UIControlStateNormal];
@@ -219,17 +194,12 @@
     self.controller = [[LBYouTubePlayerController alloc] initWithYouTubeURL:[NSURL URLWithString:url] quality:LBYouTubeVideoQualityLarge];
     self.controller.controlStyle = MPMovieControlStyleFullscreen;
     self.controller.delegate = self;
-    //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
-    
     self.controller.view.frame = self.view.window.frame;
-    //self.controller.view.center = self.view.center;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     [self.view.window addSubview:self.controller.view];
     [self.controller play];
 
 }
-
-
 
 -(void)videoPlayBackDidFinish:(NSNotification*)notification  {
     
@@ -339,25 +309,14 @@
         case MFSideMenuStateClosed:
             if([[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
                 self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
-            } else {
-                self.navigationItem.leftBarButtonItem = [self backBarButtonItem];
             }
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
         case MFSideMenuStateLeftMenuOpen:
             self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
             break;
         case MFSideMenuStateRightMenuOpen:
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
     }
-}
-
-- (UIBarButtonItem *)backBarButtonItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
-                                            style:UIBarButtonItemStyleBordered
-                                           target:self
-                                           action:@selector(backButtonPressed:)];
 }
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
@@ -366,57 +325,6 @@
             target:self.navigationController.sideMenu
             action:@selector(toggleLeftSideMenu)];
 }
-
-- (UIBarButtonItem *)rightMenuBarButtonItem {
-    //    return [[UIBarButtonItem alloc]
-    //            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-    //            target:self.navigationController.sideMenu
-    //            action:@selector(toggleRightSideMenu)];
-    return nil;
-}
-
-- (void)backButtonPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

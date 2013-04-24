@@ -10,7 +10,7 @@
 #import "LBYouTube.h"
 
 @interface ScheduleTableViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
-    LBYouTubePlayerController* controller;
+    LBYouTubePlayerController* _controller;
 }
 
 @property (strong,nonatomic) NSArray *movieArray;
