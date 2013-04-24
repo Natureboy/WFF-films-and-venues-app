@@ -161,19 +161,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">textView</string>
+						<string key="label">reviewTextView</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="762092158"/>
 					</object>
-					<int key="connectionID">64</int>
+					<int key="connectionID">66</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">label</string>
+						<string key="label">reviewerLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="1008557416"/>
 					</object>
-					<int key="connectionID">65</int>
+					<int key="connectionID">67</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -253,100 +253,29 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">65</int>
+			<int key="maxID">67</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">HomeViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">btnClicked:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">btnClicked:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">btnClicked:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="carousel">iCarousel</string>
-						<string key="directionsButton">UIButton</string>
-						<string key="directionsLabel">UILabel</string>
-						<string key="favoritesButton">UIButton</string>
-						<string key="favoritesLabel">UILabel</string>
-						<string key="label">UILabel</string>
-						<string key="playingButton">UIButton</string>
-						<string key="playingLabel">UILabel</string>
-						<string key="scheduleButton">UIButton</string>
-						<string key="scheduleLabel">UILabel</string>
-						<string key="textView">UITextView</string>
-						<string key="ticketsButton">UIButton</string>
-						<string key="ticketsLabel">UILabel</string>
-						<string key="venuesButton">UIButton</string>
-						<string key="venuesLabel">UILabel</string>
+						<string key="reviewTextView">UITextView</string>
+						<string key="reviewerLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="carousel">
 							<string key="name">carousel</string>
 							<string key="candidateClassName">iCarousel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="directionsButton">
-							<string key="name">directionsButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="directionsLabel">
-							<string key="name">directionsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="favoritesButton">
-							<string key="name">favoritesButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="favoritesLabel">
-							<string key="name">favoritesLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="label">
-							<string key="name">label</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="playingButton">
-							<string key="name">playingButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="playingLabel">
-							<string key="name">playingLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scheduleButton">
-							<string key="name">scheduleButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scheduleLabel">
-							<string key="name">scheduleLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="textView">
-							<string key="name">textView</string>
+						<object class="IBToOneOutletInfo" key="reviewTextView">
+							<string key="name">reviewTextView</string>
 							<string key="candidateClassName">UITextView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="ticketsButton">
-							<string key="name">ticketsButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="ticketsLabel">
-							<string key="name">ticketsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="venuesButton">
-							<string key="name">venuesButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="venuesLabel">
-							<string key="name">venuesLabel</string>
+						<object class="IBToOneOutletInfo" key="reviewerLabel">
+							<string key="name">reviewerLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>
