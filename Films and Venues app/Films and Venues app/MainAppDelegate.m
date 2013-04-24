@@ -8,7 +8,6 @@
 
 #import "MainAppDelegate.h"
 #import "HomeViewController.h"
-#import "SponsorsViewController.h"
 #import "MFSideMenu.h"
 #import "SideMenuViewController.h"
 
@@ -16,67 +15,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    
-//    /* changes default text of the tab bar */
-//    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary: [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
-//    [attributes setValue:[UIFont fontWithName:@"LTTetria Bold" size:12] forKey:UITextAttributeFont];
-//    [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-//    
+    /* sets the nav bar to custom text everywhere */
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                 UITextAttributeTextColor: [UIColor whiteColor],
                           UITextAttributeTextShadowColor: [UIColor grayColor],
                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
                                      UITextAttributeFont: [UIFont fontWithName:@"KeeponTruckin" size:28.0f]
      }];
-//
-//    /* sets up all the various view controllers and corresponding nav controllers */
-//    
-//    /* home tab */
-//    _homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-//    _homeNavController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
-//    _homeNavController.navigationBar.barStyle = UIBarStyleBlack;
-//    
-//    /* about tab */
-//    _aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-//    _aboutNavController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
-//    _aboutNavController.navigationBar.barStyle = UIBarStyleBlack;
-//    
-//    /* sponsers tab */
-//    _sponsorsViewController = [[SponsorsViewController alloc] initWithNibName:@"SponsorsViewController" bundle:nil];
-//    _sponsersNavController = [[UINavigationController alloc] initWithRootViewController:_sponsorsViewController];
-//    _sponsersNavController.navigationBar.barStyle = UIBarStyleBlack;
-//    
-//    /* contact tab */
-//    _contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
-//    _contactNavController = [[UINavigationController alloc] initWithRootViewController:_contactViewController];
-//    _contactNavController.navigationBar.barStyle = UIBarStyleBlack;
-//    
-//    /* more tab */
-//    _moreViewController = [[MoreViewController alloc] initWithNibName:@"MoreViewController" bundle:nil];
-//    _moreNavController = [[UINavigationController alloc] initWithRootViewController:_moreViewController];
-//    _moreNavController.navigationBar.barStyle = UIBarStyleBlack;
-//    
-//    /* sets up tab bar and adds nav controllers to it respectively */
-//    _tabBarController = [[UITabBarController alloc] init];
-//    _tabBarController.viewControllers = @[_homeNavController, _aboutNavController, _sponsersNavController, _contactNavController, _moreNavController];
-//    
-//    
-//    self.window.rootViewController = _tabBarController;
-//    [self.window makeKeyAndVisible];
-//    return YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-//    NSMutableArray *controllers = [NSMutableArray new];
-//    [controllers addObject:[self sideMenu].navigationController];
-//    [controllers addObject:[self sideMenu].navigationController];
-//    [controllers addObject:[self sideMenu].navigationController];
-//    [controllers addObject:[self sideMenu].navigationController];
-//    
-//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-//    [tabBarController setViewControllers:controllers];
     
     self.window.rootViewController = [self sideMenu].navigationController;
     [self.window makeKeyAndVisible];
@@ -95,7 +42,6 @@
 
 -(MFSideMenu *)sideMenu {
     SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
-    //SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];
     UINavigationController *navigationController = [self navigationController];
     
     MFSideMenu *sideMenu = [MFSideMenu menuWithNavigationController:navigationController
@@ -103,7 +49,6 @@
                                             rightSideMenuController:nil];
     
     leftSideMenuController.sideMenu = sideMenu;
-    //rightSideMenuController.sideMenu = sideMenu;
     
     return sideMenu;
 }
