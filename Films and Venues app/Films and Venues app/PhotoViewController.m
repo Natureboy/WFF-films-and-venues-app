@@ -84,6 +84,7 @@
 
 - (IBAction)nextRandomPhotoAction:(id)sender
 {
+    
 	if (![_flickrRequest isRunning]) {
 		[_flickrRequest callAPIMethodWithGET:@"flickr.photosets.getPhotos" arguments:[NSDictionary dictionaryWithObjectsAndKeys: @"72157627054385034", @"photoset_id", nil]];
 	}

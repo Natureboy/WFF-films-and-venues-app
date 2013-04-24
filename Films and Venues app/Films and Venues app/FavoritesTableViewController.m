@@ -18,10 +18,10 @@
 
 //- (id)initWithStyle:(UITableViewStyle)style
 //{
-//    self = [super initWithStyle:style];
+//    self = [super in itWithStyle:style];
 //    if (self) {
 //        // Custom initialization
-//        self.title = @"Favorites";
+//        self.title = @"Favorites";1
 //    }
 //    return self;
 //}
