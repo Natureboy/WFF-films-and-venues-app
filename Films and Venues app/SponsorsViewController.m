@@ -54,10 +54,6 @@
 }
 
 - (UIBarButtonItem *)rightMenuBarButtonItem {
-    //    return [[UIBarButtonItem alloc]
-    //            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-    //            target:self.navigationController.sideMenu
-    //            action:@selector(toggleRightSideMenu)];
     return nil;
 }
 
@@ -82,8 +78,6 @@
     [super viewDidLoad];
     
     [_titleLabel setFont:[UIFont fontWithName:@"LTTetria Bold" size:24]];
-    
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]]];
     
     // Do any additional setup after loading the view from its nib.
 }

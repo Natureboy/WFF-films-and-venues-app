@@ -36,8 +36,6 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>OneDirection.ttf</string>
-		<string>Fishfingers.ttf</string>
 		<string>TETRL___.TTF</string>
 		<string>TETRB___.TTF</string>
 		<string>KeeponTruckin.ttf</string>

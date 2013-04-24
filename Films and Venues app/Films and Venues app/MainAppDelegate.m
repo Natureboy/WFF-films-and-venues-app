@@ -8,10 +8,7 @@
 
 #import "MainAppDelegate.h"
 #import "HomeViewController.h"
-#import "AboutViewController.h"
 #import "SponsorsViewController.h"
-#import "ContactViewController.h"
-#import "MoreViewController.h"
 #import "MFSideMenu.h"
 #import "SideMenuViewController.h"
 
