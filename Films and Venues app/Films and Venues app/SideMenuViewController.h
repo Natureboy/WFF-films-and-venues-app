@@ -10,16 +10,15 @@
 
 #define kAllPinsLoaded @"kAllPinsLoaded"
 
-@interface SideMenuViewController : UITableViewController<UISearchBarDelegate>
+@interface SideMenuViewController : UITableViewController
 
 @property (nonatomic, assign) MFSideMenu *sideMenu;
 
-@property (strong,nonatomic) NSMutableArray *tableElements;
-@property (strong,nonatomic) NSMutableArray *tableImages;
-@property (strong,nonatomic) NSMutableArray *viewControllers;
 @property (nonatomic,strong) NSMutableArray *holderArray;
+@property (strong,nonatomic) NSArray *tableElements;
+@property (strong,nonatomic) NSArray *tableImages;
+@property (strong,nonatomic) NSArray *viewControllers;
 @property (nonatomic,strong) NSArray *venuesArray;
-
 
 @property (nonatomic, strong) SVModalWebViewController *svmController;
 
