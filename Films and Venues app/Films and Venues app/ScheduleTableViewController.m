@@ -116,8 +116,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    for(UIView *eachView in [cell subviews])
-        [eachView removeFromSuperview];
+    for(UIView *eachView in [cell subviews]) {
+        if ([eachView isKindOfClass:[UILabel class]] || [eachView isKindOfClass:[UIButton class]]) {
+            [eachView removeFromSuperview];
+        }
+    }
+        
     
     NSMutableString *str = [[NSMutableString alloc] init];
     
