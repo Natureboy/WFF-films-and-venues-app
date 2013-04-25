@@ -16,16 +16,6 @@
 
 @implementation FavoritesTableViewController
 
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    self = [super in itWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//        self.title = @"Favorites";1
-//    }
-//    return self;
-//}
-
 -(void)viewDidAppear:(BOOL)animated {
     [self setupMenuBarButtonItems];
 }
@@ -35,25 +25,14 @@
         case MFSideMenuStateClosed:
             if([[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
                 self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
-            } else {
-                self.navigationItem.leftBarButtonItem = [self backBarButtonItem];
             }
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
         case MFSideMenuStateLeftMenuOpen:
             self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
             break;
         case MFSideMenuStateRightMenuOpen:
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
     }
-}
-
-- (UIBarButtonItem *)backBarButtonItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
-                                            style:UIBarButtonItemStyleBordered
-                                           target:self
-                                           action:@selector(backButtonPressed:)];
 }
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
@@ -61,18 +40,6 @@
             initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
             target:self.navigationController.sideMenu
             action:@selector(toggleLeftSideMenu)];
-}
-
-- (UIBarButtonItem *)rightMenuBarButtonItem {
-    //    return [[UIBarButtonItem alloc]
-    //            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-    //            target:self.navigationController.sideMenu
-    //            action:@selector(toggleRightSideMenu)];
-    return nil;
-}
-
-- (void)backButtonPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -148,8 +115,6 @@
 {
     [super viewDidLoad];
     
-
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -201,12 +166,16 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    for(UIView *eachView in [cell subviews])
-        [eachView removeFromSuperview];
+    for(UIView *eachView in [cell subviews]) {
+        if ([eachView isKindOfClass:[UILabel class]] || [eachView isKindOfClass:[UIButton class]]) {
+            [eachView removeFromSuperview];
+        }
+    }  
     
     NSMutableString *str = [[NSMutableString alloc] init];
     
@@ -226,18 +195,18 @@
     [lbl1 setTextColor:[UIColor blackColor]];
     [lbl1 setBackgroundColor:[UIColor clearColor]];
     lbl1.text = [[[_favoritesSplitArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
-    [cell addSubview:lbl1];
+    [cell.contentView addSubview:lbl1];
     
     UILabel *lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 40, 200, 20)];
     [lbl2 setFont:[UIFont fontWithName:@"LTTetria Light" size:14.0]];
     [lbl2 setTextColor:[UIColor grayColor]];
     [lbl2 setBackgroundColor:[UIColor clearColor]];
     lbl2.text = str;
-    [cell addSubview:lbl2];
+    [cell.contentView addSubview:lbl2];
     
     UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
     [imageButton setImage:img forState:UIControlStateNormal];
-    [cell addSubview:imageButton];
+    [cell.contentView addSubview:imageButton];
     
     NSString *movie = [[[_favoritesSplitArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
     
@@ -260,15 +229,12 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
-
-
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -290,16 +256,11 @@
 -(void)playTrailer:(id)sender {
     UIButton *btnClicked = (UIButton *)sender;
     int tagVal = btnClicked.tag - 100;
-    
     NSString *url = [[_trailers objectAtIndex:tagVal] objectForKey:@"url"];
-    
     self.controller = [[LBYouTubePlayerController alloc] initWithYouTubeURL:[NSURL URLWithString:url] quality:LBYouTubeVideoQualityLarge];
     self.controller.controlStyle = MPMovieControlStyleFullscreen;
     self.controller.delegate = self;
-    //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
-    
     self.controller.view.frame = self.view.window.frame;
-    //self.controller.view.center = self.view.center;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     [self.view.window addSubview:self.controller.view];
     [self.controller play];
@@ -307,9 +268,7 @@
 }
 
 -(void)videoPlayBackDidFinish:(NSNotification*)notification  {
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    
     [self.controller stop];
     [self.controller.view removeFromSuperview];
     self.controller = nil;
@@ -347,34 +306,11 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end

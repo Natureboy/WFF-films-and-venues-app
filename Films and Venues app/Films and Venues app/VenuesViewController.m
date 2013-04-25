@@ -26,25 +26,14 @@
         case MFSideMenuStateClosed:
             if([[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
                 self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
-            } else {
-                self.navigationItem.leftBarButtonItem = [self backBarButtonItem];
             }
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
         case MFSideMenuStateLeftMenuOpen:
             self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
             break;
         case MFSideMenuStateRightMenuOpen:
-            self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
             break;
     }
-}
-
-- (UIBarButtonItem *)backBarButtonItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
-                                            style:UIBarButtonItemStyleBordered
-                                           target:self
-                                           action:@selector(backButtonPressed:)];
 }
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
@@ -52,18 +41,6 @@
             initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
             target:self.navigationController.sideMenu
             action:@selector(toggleLeftSideMenu)];
-}
-
-- (UIBarButtonItem *)rightMenuBarButtonItem {
-    //    return [[UIBarButtonItem alloc]
-    //            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
-    //            target:self.navigationController.sideMenu
-    //            action:@selector(toggleRightSideMenu)];
-    return nil;
-}
-
-- (void)backButtonPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -87,8 +64,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -118,15 +93,10 @@
     NSDictionary *dict = [_venuesArray objectAtIndex:indexPath.row];
     
     UIImage *img = [UIImage imageNamed:[dict objectForKey:@"image_name"]];
-//    cell.imageView.image = img;
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
     [imgView setImage:img];
     [cell addSubview:imgView];
-    
-//    cell.textLabel.frame = CGRectMake(90, 0, 180, 50);
-//    cell.textLabel.font = [UIFont fontWithName:@"LTTetria Light" size:18];
-//    cell.textLabel.text = [dict objectForKey:@"name"];
     
     UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(90, 20, 180, 50)];
     [lbl1 setFont:[UIFont fontWithName:@"LTTetria Bold" size:18.0]];

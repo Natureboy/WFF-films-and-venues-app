@@ -47,9 +47,7 @@
     
     _movies = [[NSMutableArray alloc] init];
     
-    NSLog(@"venue value: %d", _venueValue);
     for (NSDictionary *dict in movieArray) {
-        NSLog(@"dict val: %d", [[dict objectForKey:@"venue"] intValue]);
         if ([[dict objectForKey:@"venue"] intValue] == _venueValue) {
             [_movies addObject:dict];
         }
@@ -140,13 +138,6 @@
     return [_movies count];
 }
 
-//- (void) resetCellsState {
-//    [revealedCells enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-//        DMSlidingTableViewCell *cell = ((DMSlidingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]]);
-//        [cell setBackgroundVisible:NO];
-//    }];
-//}
-
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
@@ -161,8 +152,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    for(UIView *eachView in [cell subviews])
-        [eachView removeFromSuperview];
+    for(UIView *eachView in [cell subviews]) {
+        if ([eachView isKindOfClass:[UILabel class]] || [eachView isKindOfClass:[UIButton class]]) {
+            [eachView removeFromSuperview];
+        }
+    }
     
     NSString *str = [NSString stringWithFormat:@"%@ -- %@", [[_movies objectAtIndex:indexPath.row] objectForKey:@"day"],[[_movies objectAtIndex:indexPath.row] objectForKey:@"time"]];
     
@@ -182,7 +176,7 @@
     lbl2.text = str;
     [cell addSubview:lbl2];
     
-    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 15, 50, 30)];
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(275, 7, 40, 40)];
     favButton.tag = indexPath.row + 1000;
     
     [favButton setImage:[UIImage imageNamed:@"bttn-favorites-selected"] forState:UIControlStateSelected];
@@ -225,10 +219,7 @@
     self.controller = [[LBYouTubePlayerController alloc] initWithYouTubeURL:[NSURL URLWithString:url] quality:LBYouTubeVideoQualityLarge];
     self.controller.controlStyle = MPMovieControlStyleFullscreen;
     self.controller.delegate = self;
-    //self.controller.view.transform = CGAffineTransformConcat(self.controller.view.transform, CGAffineTransformMakeRotation(M_PI_2));
-    
     self.controller.view.frame = self.view.window.frame;
-    //self.controller.view.center = self.view.center;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     [self.view.window addSubview:self.controller.view];
     [self.controller play];
@@ -236,9 +227,7 @@
 }
 
 -(void)videoPlayBackDidFinish:(NSNotification*)notification  {
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    
     [self.controller stop];
     [self.controller.view removeFromSuperview];
     self.controller = nil;
@@ -327,13 +316,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 

@@ -10,7 +10,7 @@
 #import "LBYouTube.h"
 
 @interface FavoritesTableViewController : UITableViewController <LBYouTubePlayerControllerDelegate> {
-    LBYouTubePlayerController* controller;
+    LBYouTubePlayerController* _controller;
 }
 
 @property (nonatomic, strong) LBYouTubePlayerController* controller;
