@@ -55,6 +55,9 @@
 		3B5ABEFD1728984E00042337 /* bttn-favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABEF91728984E00042337 /* bttn-favorites@2x.png */; };
 		3B5ABF001728999000042337 /* play-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABEFE1728999000042337 /* play-button@2x.png */; };
 		3B5ABF011728999000042337 /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABEFF1728999000042337 /* play-button.png */; };
+		3B5ABF071728CAE700042337 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABF061728CAE700042337 /* navbar.png */; };
+		3B5ABF0A1728CC8F00042337 /* contact_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABF081728CC8F00042337 /* contact_icon.png */; };
+		3B5ABF0B1728CC8F00042337 /* contact_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5ABF091728CC8F00042337 /* contact_icon@2x.png */; };
 		970B2EAA16A5FCD100607337 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970B2EA916A5FCD100607337 /* UIKit.framework */; };
 		970B2EAC16A5FCD100607337 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970B2EAB16A5FCD100607337 /* Foundation.framework */; };
 		970B2EAE16A5FCD100607337 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970B2EAD16A5FCD100607337 /* CoreGraphics.framework */; };
@@ -170,6 +173,9 @@
 		3B5ABEF91728984E00042337 /* bttn-favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bttn-favorites@2x.png"; sourceTree = "<group>"; };
 		3B5ABEFE1728999000042337 /* play-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button@2x.png"; sourceTree = "<group>"; };
 		3B5ABEFF1728999000042337 /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
+		3B5ABF061728CAE700042337 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
+		3B5ABF081728CC8F00042337 /* contact_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact_icon.png; sourceTree = "<group>"; };
+		3B5ABF091728CC8F00042337 /* contact_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contact_icon@2x.png"; sourceTree = "<group>"; };
 		970B2EA516A5FCD100607337 /* WFF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		970B2EA916A5FCD100607337 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		970B2EAB16A5FCD100607337 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -285,6 +291,7 @@
 		3B111C3E171FA6BC00670CA4 /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3B5ABF061728CAE700042337 /* navbar.png */,
 				3B111C3F171FA6BC00670CA4 /* MFSideMenu.h */,
 				3B111C40171FA6BC00670CA4 /* MFSideMenu.m */,
 				3B111C41171FA6BC00670CA4 /* UINavigationController+MFSideMenu.h */,
@@ -386,6 +393,8 @@
 		3B5ABEDD172891E300042337 /* sidebar_icons */ = {
 			isa = PBXGroup;
 			children = (
+				3B5ABF081728CC8F00042337 /* contact_icon.png */,
+				3B5ABF091728CC8F00042337 /* contact_icon@2x.png */,
 				3B5ABEDE1728939300042337 /* home_icon.png */,
 				3B5ABEDF1728939300042337 /* home_icon@2x.png */,
 				3B5ABEE01728939300042337 /* favorites_icon.png */,
@@ -690,6 +699,9 @@
 				3B5ABEFD1728984E00042337 /* bttn-favorites@2x.png in Resources */,
 				3B5ABF001728999000042337 /* play-button@2x.png in Resources */,
 				3B5ABF011728999000042337 /* play-button.png in Resources */,
+				3B5ABF071728CAE700042337 /* navbar.png in Resources */,
+				3B5ABF0A1728CC8F00042337 /* contact_icon.png in Resources */,
+				3B5ABF0B1728CC8F00042337 /* contact_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

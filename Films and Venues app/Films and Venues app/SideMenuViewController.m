@@ -13,8 +13,9 @@
 #import "PhotoViewController.h"
 #import <MapKit/MapKit.h>
 #import "SponsorsViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@implementation SideMenuViewController
+@implementation SideMenuViewController 
 
 @synthesize sideMenu;
 
@@ -36,8 +37,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allPinsLoaded) name:kAllPinsLoaded object:nil];
     
     /* table element titles and images associated with them -- add more elements here */
-    _tableElements = @[@[@"Home"], @[@"Schedule", @"Venues", @"Directions", @"Favorites", @"Photos", @"Tickets", @"Sponsers"], @[@"Website", @"Facebook", @"Twitter", @"Pinterest"]];
-    _tableImages = @[@[[UIImage imageNamed:@"home_icon"]], @[[UIImage imageNamed:@"schedule_icon"], [UIImage imageNamed:@"venues_icon"], [UIImage imageNamed:@"directions_icon"], [UIImage imageNamed:@"favorites_icon"], [UIImage imageNamed:@"photos_icon"], [UIImage imageNamed:@"tickets_icon"], [UIImage imageNamed:@"sponsers_icon"]], @[[UIImage imageNamed:@"website_icon"], [UIImage imageNamed:@"facebook_icon"], [UIImage imageNamed:@"twitter_icon"], [UIImage imageNamed:@"pinterest_icon"]]];
+    _tableElements = @[@[@"Home"], @[@"Schedule", @"Venues", @"Directions", @"Bookmarks", @"Photos", @"Tickets", @"Sponsors"], @[@"Website", @"Facebook", @"Twitter", @"Pinterest", @"Contact"]];
+    _tableImages = @[@[[UIImage imageNamed:@"home_icon"]], @[[UIImage imageNamed:@"schedule_icon"], [UIImage imageNamed:@"venues_icon"], [UIImage imageNamed:@"directions_icon"], [UIImage imageNamed:@"favorites_icon"], [UIImage imageNamed:@"photos_icon"], [UIImage imageNamed:@"tickets_icon"], [UIImage imageNamed:@"sponsers_icon"]], @[[UIImage imageNamed:@"website_icon"], [UIImage imageNamed:@"facebook_icon"], [UIImage imageNamed:@"twitter_icon"], [UIImage imageNamed:@"pinterest_icon"], [UIImage imageNamed:@"contact_icon"]]];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -168,6 +169,17 @@
         return;
     }
     
+    if (indexPath.section == 2 && indexPath.row == 4) {
+        if ([MFMailComposeViewController canSendMail]) {
+             MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+            mailer.mailComposeDelegate = self;
+            [mailer setToRecipients:@[@"info@waterfrontfilm.org"]];
+            [self.sideMenu.navigationController presentViewController:mailer animated:YES completion:nil];
+        }
+        
+        return;
+    }
+    
     HomeViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     ScheduleTableViewController *scheduleViewController = [[ScheduleTableViewController alloc] initWithNibName:@"ScheduleTableViewController" bundle:nil];
     VenuesViewController *venuesViewController = [[VenuesViewController alloc] initWithNibName:@"VenuesViewController" bundle:nil];
@@ -211,6 +223,11 @@
     }
 }
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    // Remove the mail view
+    [self.sideMenu.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - UISearchBarDelegate
 

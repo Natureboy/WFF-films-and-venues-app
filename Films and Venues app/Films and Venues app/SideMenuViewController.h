@@ -7,10 +7,11 @@
 #import <UIKit/UIKit.h>
 #import "MFSideMenu.h"
 #import "SVModalWebViewController.h"
+#import "MessageUI/MessageUI.h"
 
 #define kAllPinsLoaded @"kAllPinsLoaded"
 
-@interface SideMenuViewController : UITableViewController
+@interface SideMenuViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, assign) MFSideMenu *sideMenu;
 

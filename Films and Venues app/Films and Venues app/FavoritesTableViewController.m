@@ -46,7 +46,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Favorites";
+        self.title = @"Bookmarks";
         
         // Path to the plist (in the application bundle)
         NSString *path = [[NSBundle mainBundle] pathForResource:
