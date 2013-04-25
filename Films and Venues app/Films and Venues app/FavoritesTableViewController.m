@@ -195,18 +195,18 @@
     [lbl1 setTextColor:[UIColor blackColor]];
     [lbl1 setBackgroundColor:[UIColor clearColor]];
     lbl1.text = [[[_favoritesSplitArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
-    [cell.contentView addSubview:lbl1];
+    [cell addSubview:lbl1];
     
     UILabel *lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 40, 200, 20)];
     [lbl2 setFont:[UIFont fontWithName:@"LTTetria Light" size:14.0]];
     [lbl2 setTextColor:[UIColor grayColor]];
     [lbl2 setBackgroundColor:[UIColor clearColor]];
     lbl2.text = str;
-    [cell.contentView addSubview:lbl2];
+    [cell addSubview:lbl2];
     
     UIButton *imageButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 60, 60)];
     [imageButton setImage:img forState:UIControlStateNormal];
-    [cell.contentView addSubview:imageButton];
+    [cell addSubview:imageButton];
     
     NSString *movie = [[[_favoritesSplitArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"movie"];
     
