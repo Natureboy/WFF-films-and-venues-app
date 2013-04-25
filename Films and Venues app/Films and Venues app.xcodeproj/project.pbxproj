@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0382B81729104B007EA916 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0382B71729104B007EA916 /* CoreData.framework */; };
+		3B0382BA17291081007EA916 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0382B917291081007EA916 /* libGoogleAnalytics.a */; };
 		3B111C43171FA6BC00670CA4 /* MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B111C40171FA6BC00670CA4 /* MFSideMenu.m */; };
 		3B111C44171FA6BC00670CA4 /* UINavigationController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B111C42171FA6BC00670CA4 /* UINavigationController+MFSideMenu.m */; };
 		3B111C47171FA85D00670CA4 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B111C46171FA85D00670CA4 /* SideMenuViewController.m */; };
@@ -122,6 +124,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0382B217290FCB007EA916 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		3B0382B317290FCB007EA916 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		3B0382B417290FCB007EA916 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		3B0382B517290FCB007EA916 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		3B0382B617290FCB007EA916 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		3B0382B71729104B007EA916 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3B0382B917291081007EA916 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		3B111C3F171FA6BC00670CA4 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		3B111C40171FA6BC00670CA4 /* MFSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenu.m; sourceTree = "<group>"; };
 		3B111C41171FA6BC00670CA4 /* UINavigationController+MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MFSideMenu.h"; sourceTree = "<group>"; };
@@ -272,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0382B81729104B007EA916 /* CoreData.framework in Frameworks */,
 				970CD0751713D3CB00C50B1B /* MediaPlayer.framework in Frameworks */,
 				977620B316FAB40500B9F5B1 /* CoreLocation.framework in Frameworks */,
 				977620B116FAAEE000B9F5B1 /* MapKit.framework in Frameworks */,
@@ -282,12 +292,26 @@
 				970B2EAA16A5FCD100607337 /* UIKit.framework in Frameworks */,
 				970B2EAC16A5FCD100607337 /* Foundation.framework in Frameworks */,
 				970B2EAE16A5FCD100607337 /* CoreGraphics.framework in Frameworks */,
+				3B0382BA17291081007EA916 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0382B117290FBE007EA916 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				3B0382B917291081007EA916 /* libGoogleAnalytics.a */,
+				3B0382B217290FCB007EA916 /* GAI.h */,
+				3B0382B317290FCB007EA916 /* GAITrackedViewController.h */,
+				3B0382B417290FCB007EA916 /* GAITracker.h */,
+				3B0382B517290FCB007EA916 /* GAITransaction.h */,
+				3B0382B617290FCB007EA916 /* GAITransactionItem.h */,
+			);
+			name = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
 		3B111C3E171FA6BC00670CA4 /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +467,7 @@
 		970B2EA816A5FCD100607337 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B0382B71729104B007EA916 /* CoreData.framework */,
 				970CD0741713D3CB00C50B1B /* MediaPlayer.framework */,
 				977620B216FAB40500B9F5B1 /* CoreLocation.framework */,
 				977620B016FAAEDF00B9F5B1 /* MapKit.framework */,
@@ -540,6 +565,7 @@
 		972EC88F16FB94E700297EC8 /* Backbone */ = {
 			isa = PBXGroup;
 			children = (
+				3B0382B117290FBE007EA916 /* GoogleAnalytics */,
 				3B111C3E171FA6BC00670CA4 /* MFSideMenu */,
 				974C26B316F94BB1006F06FD /* HomeViewController.h */,
 				974C26B416F94BB1006F06FD /* HomeViewController.m */,
@@ -810,6 +836,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Films and Venues app/Films and Venues app-Prefix.pch";
 				INFOPLIST_FILE = "Films and Venues app/Films and Venues app-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Films and Venues app\"",
+				);
 				PRODUCT_NAME = WFF;
 				WRAPPER_EXTENSION = app;
 			};
@@ -821,6 +851,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Films and Venues app/Films and Venues app-Prefix.pch";
 				INFOPLIST_FILE = "Films and Venues app/Films and Venues app-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Films and Venues app\"",
+				);
 				PRODUCT_NAME = WFF;
 				WRAPPER_EXTENSION = app;
 			};

@@ -11,10 +11,20 @@
 #import "MFSideMenu.h"
 #import "SideMenuViewController.h"
 
+/******* Set your tracking ID here *******/
+static NSString *const kTrackingId = @"UA-TRACKING-ID";
+
 @implementation MainAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize Google Analytics with a 120-second dispatch interval. There is a
+    // tradeoff between battery usage and timely dispatch.
+    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].dispatchInterval = 120;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:kTrackingId];
+    
     /* sets the nav bar to custom text everywhere */
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                 UITextAttributeTextColor: [UIColor whiteColor],
