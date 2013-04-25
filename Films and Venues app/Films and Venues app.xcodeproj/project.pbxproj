@@ -452,10 +452,10 @@
 		970B2EAF16A5FCD100607337 /* Films and Venues app */ = {
 			isa = PBXGroup;
 			children = (
+				3B5ABEB81728849200042337 /* Images */,
 				3B5ABEBC1728880C00042337 /* Sponsers */,
 				3B5ABEBA172886C100042337 /* Favorites */,
 				3B5ABEB9172886B600042337 /* Venues */,
-				3B5ABEB81728849200042337 /* Images */,
 				972EC88F16FB94E700297EC8 /* Backbone */,
 				972EC88E16FB94D800297EC8 /* iCarousel */,
 				972EC88D16FB94C400297EC8 /* Photos */,

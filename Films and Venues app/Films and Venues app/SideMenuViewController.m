@@ -134,7 +134,7 @@
     }
     
     if (indexPath.section == 1 && indexPath.row == 5 ) {
-        SVModalWebViewController *modalWebView = [[SVModalWebViewController alloc] initWithAddress:@"http://www.waterfrontfilm.org/wordpress/?product_cat=tickets"];
+        SVModalWebViewController *modalWebView = [[SVModalWebViewController alloc] initWithAddress:@"http://www.waterfrontfilm.org/index.php?p=2&s=2"];
         //[self.sideMenu setMenuState:MFSideMenuStateClosed];
         [self.sideMenu.navigationController presentViewController:modalWebView animated:YES completion:nil];
         return;
