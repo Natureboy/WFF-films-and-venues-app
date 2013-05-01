@@ -8,65 +8,59 @@
 
 #import "MainAppDelegate.h"
 #import "HomeViewController.h"
-#import "AboutViewController.h"
-#import "SponsersViewController.h"
-#import "ContactViewController.h"
-#import "MoreViewController.h"
+#import "MFSideMenu.h"
+#import "SideMenuViewController.h"
+
+/******* Set your tracking ID here *******/
+static NSString *const kTrackingId = @"UA-TRACKING-ID";
 
 @implementation MainAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    // Initialize Google Analytics with a 120-second dispatch interval. There is a
+    // tradeoff between battery usage and timely dispatch.
+    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].dispatchInterval = 120;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:kTrackingId];
     
-    /* changes default text of the tab bar */
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary: [[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
-    [attributes setValue:[UIFont fontWithName:@"LTTetria Bold" size:12] forKey:UITextAttributeFont];
-    [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    
+    /* sets the nav bar to custom text everywhere */
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                 UITextAttributeTextColor: [UIColor whiteColor],
                           UITextAttributeTextShadowColor: [UIColor grayColor],
                          UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
-                                     UITextAttributeFont: [UIFont fontWithName:@"FISHfingers" size:28.0f]
+                                     UITextAttributeFont: [UIFont fontWithName:@"KeeponTruckin" size:24.0f]
      }];
     
-    /* sets up all the various view controllers and corresponding nav controllers */
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    /* home tab */
-    _homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    _homeNavController = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
-    _homeNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    /* about tab */
-    _aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-    _aboutNavController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
-    _aboutNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    /* sponsers tab */
-    _sponsersViewController = [[SponsersViewController alloc] initWithNibName:@"SponsersViewController" bundle:nil];
-    _sponsersNavController = [[UINavigationController alloc] initWithRootViewController:_sponsersViewController];
-    _sponsersNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    /* contact tab */
-    _contactViewController = [[ContactViewController alloc] initWithNibName:@"ContactViewController" bundle:nil];
-    _contactNavController = [[UINavigationController alloc] initWithRootViewController:_contactViewController];
-    _contactNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    /* more tab */
-    _moreViewController = [[MoreViewController alloc] initWithNibName:@"MoreViewController" bundle:nil];
-    _moreNavController = [[UINavigationController alloc] initWithRootViewController:_moreViewController];
-    _moreNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    /* sets up tab bar and adds nav controllers to it respectively */
-    _tabBarController = [[UITabBarController alloc] init];
-    _tabBarController.viewControllers = @[_homeNavController, _aboutNavController, _sponsersNavController, _contactNavController, _moreNavController];
-    
-    
-    self.window.rootViewController = _tabBarController;
+    self.window.rootViewController = [self sideMenu].navigationController;
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (HomeViewController *)demoController {
+    return [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+}
+
+- (UINavigationController *)navigationController {
+    return [[UINavigationController alloc]
+            initWithRootViewController:[self demoController]];
+}
+
+-(MFSideMenu *)sideMenu {
+    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
+    UINavigationController *navigationController = [self navigationController];
+    
+    MFSideMenu *sideMenu = [MFSideMenu menuWithNavigationController:navigationController
+                                             leftSideMenuController:leftSideMenuController
+                                            rightSideMenuController:nil];
+    
+    leftSideMenuController.sideMenu = sideMenu;
+    
+    return sideMenu;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
