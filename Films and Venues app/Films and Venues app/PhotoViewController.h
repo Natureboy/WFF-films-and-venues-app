@@ -16,6 +16,10 @@
 @property (strong,nonatomic) IBOutlet UIWebView *webView;
 @property (strong,nonatomic) IBOutlet UIWebView *webView_two;
 
+@property (strong,nonatomic) UIWebView *bigWebView;
+@property (strong,nonatomic) UIScrollView *scrollView;
+@property (strong,nonatomic) UIView *dimmedView;
+
 @property (strong,nonatomic) NSArray *photos;
 
 @property (nonatomic) int index;

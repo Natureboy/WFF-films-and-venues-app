@@ -8,38 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
-#import "VenuesViewController.h"
-#import "SVModalWebViewController.h"
-#import "SVWebViewController.h"
 
-#define kAllPinsLoaded @"kAllPinsLoaded"
-
-@interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, UIWebViewDelegate, UINavigationControllerDelegate>
-
-@property (nonatomic, strong) VenuesViewController *venuesViewController;
+@interface HomeViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
-@property (nonatomic, strong) IBOutlet UIButton *scheduleButton;
-@property (nonatomic, strong) IBOutlet UIButton *ticketsButton;
-@property (nonatomic, strong) IBOutlet UIButton *venuesButton;
-@property (nonatomic, strong) IBOutlet UIButton *directionsButton;
-@property (nonatomic, strong) IBOutlet UIButton *playingButton;
-@property (nonatomic, strong) IBOutlet UIButton *favoritesButton;
+@property (nonatomic,strong) NSArray *carouselImages;
+@property (nonatomic) NSArray *reviewInfo;
+@property (nonatomic) NSArray *reviewer;
 
-@property (nonatomic,strong) IBOutlet UILabel *scheduleLabel;
-@property (nonatomic,strong) IBOutlet UILabel *ticketsLabel;
-@property (nonatomic,strong) IBOutlet UILabel *venuesLabel;
-@property (nonatomic,strong) IBOutlet UILabel *directionsLabel;
-@property (nonatomic,strong) IBOutlet UILabel *playingLabel;
-@property (nonatomic,strong) IBOutlet UILabel *favoritesLabel;
+@property (strong,nonatomic) IBOutlet UITextView *reviewTextView;
+@property (strong,nonatomic) IBOutlet UILabel *reviewerLabel;
 
-@property (nonatomic,strong) NSArray *venuesArray;
-
-@property (nonatomic,strong) NSMutableArray *holderArray;
-
-@property (nonatomic) int val;
-
--(IBAction)btnClicked:(id)sender;
+@property (nonatomic) int incVal;
+@property (nonatomic) int arrVal;
 
 @end
